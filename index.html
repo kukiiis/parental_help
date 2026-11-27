@@ -4,7 +4,7 @@
 <!--
   Developer Build Metadata:
   App: Czechia New Parent & Family Guide
-  Build: v5.1 (Clean Flag-Free Header + Global Search + Built-in & Gemini AI Assistant + Cloud Live Sync + PWA)
+  Build: v6.0 (Zero-Setup Hardcoded Live Multi-Device Sync + Clean UI + Global Search + AI Assistant + PWA)
   Data Review Date: 25 November 2026 (Act No. 152/2026 Sb., MPSV No. 185/2026 Sb., NZIP 2026 schedule)
 -->
   <meta charset="UTF-8" />
@@ -917,7 +917,7 @@
     </p>
     <div class="modal-step">
       <div class="step-num">1</div>
-      <div><strong>Live Multi-Device Sync (☁️ Cloud Room):</strong> Open the <strong>☁️ Live Sync</strong> tab to connect a shared Family Sync Code (or optional Firebase Realtime Database URL). Once connected, any checkmark or note updated on one phone automatically appears on all other devices!</div>
+      <div><strong>Automatic Live Sync Across Devices:</strong> Every checkmark, note, contact, and date you update automatically syncs in real time across all connected phones, tablets, and computers—no setup required.</div>
     </div>
     <div class="modal-step">
       <div class="step-num">2</div>
@@ -994,9 +994,9 @@
         <p id="headerSubtitle">Administration • Medical &amp; Safety • Family Benefits &amp; Tax • Development (Ages 0–6)</p>
       </div>
       <div class="header-actions">
-        <div class="sync-status-pill" onclick="switchTab('sync')" title="Click to configure or view Live Multi-Device Sync">
+        <div class="sync-status-pill" onclick="pullFromCloud(true)" title="Live multi-device sync status (tap to refresh now)">
           <span class="sync-dot" id="syncDot"></span>
-          <span id="syncStatusLabel">Local Only</span>
+          <span id="syncStatusLabel">Connecting...</span>
         </div>
         <select id="themeModeSelect" class="theme-select" onchange="changeThemeMode(this.value)" aria-label="Color Theme">
           <option value="auto">🌓 Auto (Device)</option>
@@ -1040,7 +1040,6 @@
     <button class="tab-btn" data-tab="medical">🩺 Medical &amp; Safety</button>
     <button class="tab-btn" data-tab="finance">💰 Benefits &amp; Tax</button>
     <button class="tab-btn" data-tab="development">🧸 Development (0–6y)</button>
-    <button class="tab-btn" data-tab="sync">☁️ Live Sync</button>
     <button class="tab-btn" data-tab="sources">📚 Sources</button>
   </div>
 </nav>
@@ -1428,59 +1427,8 @@
     </div>
   </section>
 
-  <!-- ==================== TAB 5: LIVE MULTI-DEVICE CLOUD SYNC ==================== -->
-  <section id="tab-sync" class="tab-panel">
-    <div class="callout success">
-      <strong>☁️ Automatic Live Sync Across All Phones, Browsers &amp; Users:</strong> Because GitHub Pages hosts static files, connecting a free <strong>Firebase Realtime Database URL</strong> (takes 60 seconds, 0 Kč) gives your guide real-time cloud storage. Whenever anyone checks a box, updates the birth date, edits contacts, or adds a note on any phone or PC, it syncs automatically everywhere.
-    </div>
 
-    <div class="card">
-      <div class="card-header">
-        <div class="card-title">🔗 Connect Shared Cloud Sync Room</div>
-        <span class="tag blue" id="cloudSyncBadge">Not Connected (Local Mode)</span>
-      </div>
-      <div class="grid-2">
-        <div>
-          <label class="field-label">1. Firebase Realtime Database URL (Required for Live Automatic Sync)</label>
-          <input type="text" id="firebaseUrlInput" placeholder="https://your-project-default-rtdb.europe-west1.firebasedatabase.app" />
-          <p style="font-size:0.78rem;color:var(--text-muted);margin-top:5px;">
-            Create a free project at <strong>console.firebase.google.com</strong> → Build → Realtime Database → Create Database (Start in test mode) → copy the <code>https://...firebasedatabase.app</code> URL here.
-          </p>
-        </div>
-        <div>
-          <label class="field-label">2. Shared Family Room Name / Passcode</label>
-          <input type="text" id="syncRoomInput" value="family-2027" placeholder="e.g., family-2027" />
-          <p style="font-size:0.78rem;color:var(--text-muted);margin-top:5px;">
-            Anyone opening the invite link below with the same Room Name automatically shares the exact same live checklist, notes, contacts, and financial plan.
-          </p>
-        </div>
-      </div>
-
-      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;">
-        <button class="btn btn-primary" onclick="connectCloudSync()">☁️ Save &amp; Connect Live Sync</button>
-        <button class="btn btn-light" onclick="pullFromCloud(true)">🔄 Force Pull Now</button>
-        <button class="btn btn-light" onclick="pushToCloud(true)">⬆️ Force Push Now</button>
-        <button class="btn btn-light" onclick="copyCloudInviteLink()">📲 Copy Invite Link for Other Devices</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="card-title">📦 Manual Link &amp; File Backup (Works Without Cloud Setup)</div>
-      </div>
-      <p style="font-size:0.83rem;color:var(--text-muted);margin-bottom:10px;">
-        You can also copy an instant snapshot link or download/restore a JSON backup file anytime:
-      </p>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;">
-        <button class="btn btn-primary" onclick="copySyncLink()">🔗 Copy Snapshot Sync Link</button>
-        <button class="btn btn-light" onclick="exportData()">⬇ Download JSON Backup</button>
-        <button class="btn btn-light" onclick="document.getElementById('importFile').click()">⬆ Restore JSON Backup</button>
-        <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)" />
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== TAB 6: OFFICIAL SOURCES ==================== -->
+  <!-- ==================== TAB 5: OFFICIAL SOURCES ==================== -->
   <section id="tab-sources" class="tab-panel">
     <div class="card">
       <div class="card-header">
@@ -1521,7 +1469,7 @@
 
 <script>
   // ==================== DEVELOPER BUILD RECORD ====================
-  const APP_BUILD_INFO = { version: "5.1.0", reviewed: "2026-11-25" };
+  const APP_BUILD_INFO = { version: "6.0.0", reviewed: "2026-11-25" };
   const STORAGE_KEY = "cz_parent_guide_v5_live";
   const CLOUD_CFG_KEY = "cz_parent_guide_cloud_cfg";
   const GEMINI_KEY_STORAGE = "cz_parent_guide_gemini_key";
@@ -1618,7 +1566,7 @@
     ]
   };
 
-  let cloudCfg = { dbUrl: "", room: "family-2027" };
+  const CLOUD_CONFIG = { dbUrl: "https://jj2027-default-rtdb.europe-west1.firebasedatabase.app", room: "jj2027_family_sync" };
   let cloudPollTimer = null;
   let pushDebounceTimer = null;
 
@@ -1628,18 +1576,7 @@
   const systemDarkQuery = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
 
   function loadLocalData() {
-    try {
-      const cfgRaw = localStorage.getItem(CLOUD_CFG_KEY);
-      if (cfgRaw) cloudCfg = Object.assign(cloudCfg, JSON.parse(cfgRaw));
-    } catch (e) {}
 
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("db")) {
-      cloudCfg.dbUrl = params.get("db").replace(/\/+$/, "");
-      if (params.get("room")) cloudCfg.room = params.get("room");
-      try { localStorage.setItem(CLOUD_CFG_KEY, JSON.stringify(cloudCfg)); } catch (e) {}
-      history.replaceState(null, "", window.location.pathname);
-    }
 
     if (window.location.hash && window.location.hash.startsWith("#sync=")) {
       try {
@@ -1672,7 +1609,7 @@
   function commitChange(updateUi = true) {
     state.updatedAt = Date.now();
     saveLocalState(updateUi);
-    if (cloudCfg.dbUrl) {
+    if (CLOUD_CONFIG.dbUrl) {
       setSyncIndicator("syncing", "Syncing...");
       clearTimeout(pushDebounceTimer);
       pushDebounceTimer = setTimeout(() => pushToCloud(false), 500);
@@ -1687,12 +1624,12 @@
       dot.className = "sync-dot" + (status === "live" ? " live" : status === "syncing" ? " syncing" : "");
     }
     if (lbl) lbl.textContent = label;
-    if (badge) badge.textContent = status === "live" ? `Connected: ${cloudCfg.room}` : label;
+    if (badge) badge.textContent = status === "live" ? `Connected: ${CLOUD_CONFIG.room}` : label;
   }
 
   function getCloudEndpoint() {
-    const cleanUrl = (cloudCfg.dbUrl || "").trim().replace(/\/+$/, "");
-    const cleanRoom = (cloudCfg.room || "family-2027").trim().replace(/[^a-zA-Z0-9_-]/g, "_");
+    const cleanUrl = (CLOUD_CONFIG.dbUrl || "").trim().replace(/\/+$/, "");
+    const cleanRoom = (CLOUD_CONFIG.room || "family-2027").trim().replace(/[^a-zA-Z0-9_-]/g, "_");
     if (!cleanUrl) return null;
     return `${cleanUrl}/parental_help/${cleanRoom}.json`;
   }
@@ -1749,47 +1686,18 @@
 
   function startCloudSyncLoop() {
     if (cloudPollTimer) clearInterval(cloudPollTimer);
-    if (!cloudCfg.dbUrl) {
+    if (!CLOUD_CONFIG.dbUrl) {
       setSyncIndicator("local", "Local Only");
       return;
     }
     pullFromCloud(false);
-    cloudPollTimer = setInterval(() => pullFromCloud(false), 6000);
+    cloudPollTimer = setInterval(() => pullFromCloud(false), 4000);
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible") pullFromCloud(false);
+    });
   }
 
-  function connectCloudSync() {
-    const urlVal = document.getElementById("firebaseUrlInput").value.trim().replace(/\/+$/, "");
-    const roomVal = document.getElementById("syncRoomInput").value.trim() || "family-2027";
-    if (urlVal && !urlVal.startsWith("https://")) {
-      alert("Please enter a valid https:// Firebase Realtime Database URL.");
-      return;
-    }
-    cloudCfg = { dbUrl: urlVal, room: roomVal };
-    try { localStorage.setItem(CLOUD_CFG_KEY, JSON.stringify(cloudCfg)); } catch (e) {}
-    if (urlVal) {
-      state.updatedAt = Math.max(state.updatedAt || 0, 1);
-      startCloudSyncLoop();
-      showToast("☁️ Live multi-device sync connected!");
-    } else {
-      if (cloudPollTimer) clearInterval(cloudPollTimer);
-      setSyncIndicator("local", "Local Only");
-      showToast("Switched to local-only storage");
-    }
-  }
 
-  function copyCloudInviteLink() {
-    if (!cloudCfg.dbUrl) {
-      showToast("⚠️ Enter & save a Firebase Database URL first");
-      return;
-    }
-    const base = window.location.origin + window.location.pathname;
-    const inviteUrl = `${base}?db=${encodeURIComponent(cloudCfg.dbUrl)}&room=${encodeURIComponent(cloudCfg.room)}`;
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(inviteUrl).then(() => showToast("📲 Live Sync Invite Link copied!"));
-    } else {
-      prompt("Share this Live Sync Invite Link:", inviteUrl);
-    }
-  }
 
   function showToast(msg) {
     const t = document.getElementById("toast");
@@ -2499,8 +2407,7 @@
     document.getElementById("rpBasis").value = state.finance.rpBasis || "higher";
     document.getElementById("rpMonthsSlider").value = state.finance.rpMonths || 24;
 
-    document.getElementById("firebaseUrlInput").value = cloudCfg.dbUrl || "";
-    document.getElementById("syncRoomInput").value = cloudCfg.room || "family-2027";
+
     document.getElementById("geminiKeyInput").value = getGeminiKey();
     updateAiBadge();
 
