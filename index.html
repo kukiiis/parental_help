@@ -1,0 +1,2524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+  Developer Build Metadata:
+  App: Czechia New Parent & Family Guide
+  Build: v5.1 (Clean Flag-Free Header + Global Search + Built-in & Gemini AI Assistant + Cloud Live Sync + PWA)
+  Data Review Date: 25 November 2026 (Act No. 152/2026 Sb., MPSV No. 185/2026 Sb., NZIP 2026 schedule)
+-->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="CZ Parent Guide" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#0f172a" id="themeMeta" />
+  <title>Czechia New Parent &amp; Family Guide</title>
+  <link rel="manifest" id="pwaManifest" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f172a'/%3E%3Cpath d='M18 34c0-8 6-14 14-14s14 6 14 14-6 14-14 14-14-6-14-14z' fill='%2338bdf8'/%3E%3Ccircle cx='32' cy='34' r='6' fill='%23f8fafc'/%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%230f172a'/%3E%3Ccircle cx='90' cy='90' r='44' fill='%2338bdf8'/%3E%3Ccircle cx='90' cy='90' r='18' fill='%23ffffff'/%3E%3C/svg%3E" />
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-alt: #f1f5f9;
+      --input-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #cbd5e1;
+      --border-soft: #e2e8f0;
+      --header-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      --header-text: #ffffff;
+      --header-sub: #94a3b8;
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --primary-contrast: #ffffff;
+      --accent: #0d9488;
+      --accent-light: #ccfbf1;
+      --accent-text: #115e59;
+      --warn: #d97706;
+      --warn-light: #fef3c7;
+      --warn-text: #78350f;
+      --danger: #dc2626;
+      --danger-light: #fee2e2;
+      --danger-text: #7f1d1d;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --success-text: #14532d;
+      --info-text: #0c4a6e;
+      --link-color: #0369a1;
+      --radius: 14px;
+      --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.07);
+    }
+
+    body.dark-theme {
+      color-scheme: dark;
+      --bg: #090d16;
+      --surface: #111827;
+      --surface-alt: #1e293b;
+      --input-bg: #0f172a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --border-soft: #1e293b;
+      --header-bg: linear-gradient(135deg, #05080f 0%, #0f172a 100%);
+      --header-text: #f1f5f9;
+      --header-sub: #94a3b8;
+      --primary: #38bdf8;
+      --primary-dark: #7dd3fc;
+      --primary-light: rgba(56, 189, 248, 0.14);
+      --primary-contrast: #06121e;
+      --accent: #2dd4bf;
+      --accent-light: rgba(45, 212, 191, 0.14);
+      --accent-text: #5eead4;
+      --warn: #fbbf24;
+      --warn-light: rgba(251, 191, 36, 0.14);
+      --warn-text: #fde68a;
+      --danger: #f87171;
+      --danger-light: rgba(248, 113, 113, 0.14);
+      --danger-text: #fecaca;
+      --success: #4ade80;
+      --success-light: rgba(74, 222, 128, 0.14);
+      --success-text: #bbf7d0;
+      --info-text: #bae6fd;
+      --link-color: #38bdf8;
+      --shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    body.bw-dark-theme {
+      color-scheme: dark;
+      --bg: #000000;
+      --surface: #0c0c0c;
+      --surface-alt: #171717;
+      --input-bg: #050505;
+      --text: #e5e5e5;
+      --text-muted: #a3a3a3;
+      --border: #404040;
+      --border-soft: #262626;
+      --header-bg: #000000;
+      --header-text: #f5f5f5;
+      --header-sub: #a3a3a3;
+      --primary: #d4d4d4;
+      --primary-dark: #e5e5e5;
+      --primary-light: #1a1a1a;
+      --primary-contrast: #000000;
+      --accent: #d4d4d4;
+      --accent-light: #1a1a1a;
+      --accent-text: #e5e5e5;
+      --warn: #d4d4d4;
+      --warn-light: #1a1a1a;
+      --warn-text: #e5e5e5;
+      --danger: #e5e5e5;
+      --danger-light: #1f1f1f;
+      --danger-text: #f5f5f5;
+      --success: #d4d4d4;
+      --success-light: #1a1a1a;
+      --success-text: #e5e5e5;
+      --info-text: #e5e5e5;
+      --link-color: #e5e5e5;
+      --shadow: none;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      padding-bottom: 100px;
+      -webkit-tap-highlight-color: transparent;
+      overflow-x: hidden;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    a { color: var(--link-color); }
+
+    /* Header */
+    header {
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 18px 16px 16px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .header-inner { max-width: 1140px; margin: 0 auto; }
+    .header-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .brand h1 {
+      font-size: clamp(1.08rem, 2.5vw, 1.35rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      color: var(--header-text);
+    }
+    .brand p {
+      font-size: 0.82rem;
+      color: var(--header-sub);
+      margin-top: 4px;
+    }
+    .header-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      align-items: center;
+    }
+    .btn {
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.08);
+      color: #f1f5f9;
+      padding: 7px 11px;
+      border-radius: 9px;
+      font-size: 0.79rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { background: rgba(255,255,255,0.16); }
+    .btn-primary {
+      background: var(--primary);
+      border-color: transparent;
+      color: var(--primary-contrast);
+    }
+    .btn-primary:hover { filter: brightness(1.08); }
+    .btn-light {
+      background: var(--surface-alt);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-light:hover { filter: brightness(1.05); }
+
+    .theme-select {
+      width: auto !important;
+      padding: 6px 10px !important;
+      border-radius: 9px !important;
+      border: 1px solid rgba(255,255,255,0.28) !important;
+      background: rgba(15, 23, 42, 0.85) !important;
+      color: #f1f5f9 !important;
+      font-size: 0.79rem !important;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* Live Sync Status Pill */
+    .sync-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      background: rgba(255,255,255,0.1);
+      color: #e2e8f0;
+      border: 1px solid rgba(255,255,255,0.2);
+      cursor: pointer;
+    }
+    .sync-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #94a3b8;
+    }
+    .sync-dot.live {
+      background: #4ade80;
+      box-shadow: 0 0 8px #4ade80;
+    }
+    .sync-dot.syncing {
+      background: #fbbf24;
+    }
+
+    /* Flexible Birth Date Bar */
+    .due-bar {
+      margin-top: 12px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 11px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 0.82rem;
+    }
+    .due-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+    .due-controls label { font-weight: 600; color: #cbd5e1; }
+    .due-controls input[type="date"] {
+      width: auto;
+      padding: 5px 9px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.28);
+      background: #0f172a;
+      color: #f1f5f9;
+      font-weight: 700;
+      font-size: 0.82rem;
+      color-scheme: dark;
+    }
+    .due-summary { color: #e2e8f0; font-weight: 600; }
+
+    /* Progress Bar */
+    .progress-wrap { margin-top: 12px; }
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--header-sub);
+      margin-bottom: 5px;
+    }
+    .progress-track {
+      width: 100%;
+      height: 8px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #38bdf8, #2dd4bf);
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+    body.bw-dark-theme .progress-fill { background: #a3a3a3; }
+
+    /* Sticky Top Navigation & Global Search Bar */
+    .nav-bar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 45;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+    .nav-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      padding: 6px 12px;
+      gap: 6px;
+    }
+    .tab-btn {
+      background: var(--surface-alt);
+      border: 1px solid var(--border-soft);
+      border-radius: 9px;
+      padding: 8px 11px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      flex: 1 1 auto;
+      text-align: center;
+      min-width: 115px;
+    }
+    .tab-btn:hover { color: var(--text); border-color: var(--border); }
+    .tab-btn.active {
+      background: var(--primary);
+      color: var(--primary-contrast);
+      border-color: var(--primary);
+    }
+
+    /* Global Site-Wide Search Strip */
+    .global-search-bar {
+      max-width: 1140px;
+      margin: 14px auto 0;
+      padding: 0 14px;
+    }
+    .global-search-box {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 6px 10px;
+      box-shadow: var(--shadow);
+    }
+    .global-search-box input {
+      border: none !important;
+      background: transparent !important;
+      padding: 6px 4px !important;
+      font-size: 0.9rem !important;
+      outline: none !important;
+    }
+    .global-results-panel {
+      display: none;
+      margin-top: 8px;
+      background: var(--surface);
+      border: 1.5px solid var(--primary);
+      border-radius: 12px;
+      padding: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+      max-height: 360px;
+      overflow-y: auto;
+    }
+    .global-results-panel.open { display: block; }
+    .search-hit {
+      padding: 9px 10px;
+      border-bottom: 1px solid var(--border-soft);
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background 0.12s;
+    }
+    .search-hit:last-child { border-bottom: none; }
+    .search-hit:hover { background: var(--surface-alt); }
+    .search-hit-top {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+      font-size: 0.87rem;
+      margin-bottom: 2px;
+    }
+    .search-hit-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Main Layout */
+    main {
+      max-width: 1140px;
+      margin: 14px auto;
+      padding: 0 14px;
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; animation: fadeIn 0.2s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* PWA Banner */
+    .pwa-banner {
+      display: none;
+      margin: 0 auto 14px;
+      padding: 11px 14px;
+      border-radius: 12px;
+      background: var(--primary-light);
+      border: 1.5px solid var(--primary);
+      color: var(--info-text);
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.84rem;
+    }
+    .pwa-banner.visible { display: flex; }
+
+    /* Cards & Grids */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+      margin-bottom: 16px;
+    }
+    .card-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .card-title {
+      font-size: 1.03rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 7px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
+      gap: 14px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+      gap: 12px;
+    }
+
+    /* Info Tooltips & Collapsible Explanations */
+    .info-tip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border: 1px solid var(--primary);
+      font-size: 0.72rem;
+      font-weight: 800;
+      cursor: pointer;
+      vertical-align: middle;
+      margin-left: 4px;
+      user-select: none;
+      flex-shrink: 0;
+    }
+    .tooltip-popover {
+      position: fixed;
+      z-index: 200;
+      max-width: min(340px, 90vw);
+      background: var(--surface);
+      color: var(--text);
+      border: 2px solid var(--primary);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 0.83rem;
+      line-height: 1.45;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+      display: none;
+    }
+    .tooltip-popover.open { display: block; }
+    .tooltip-popover-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: var(--primary-dark);
+    }
+    .tooltip-close {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--text-muted);
+      padding: 0 4px;
+    }
+
+    details.explain-box {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 9px 12px;
+      margin-bottom: 12px;
+      font-size: 0.84rem;
+    }
+    details.explain-box summary {
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--text);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    details.explain-box summary::-webkit-details-marker { display: none; }
+    details.explain-box summary::after {
+      content: "▼";
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      transition: transform 0.2s;
+    }
+    details.explain-box[open] summary::after { transform: rotate(180deg); }
+    details.explain-box .explain-body {
+      margin-top: 8px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-soft);
+      padding-top: 8px;
+    }
+
+    /* Callouts & Tags */
+    .callout {
+      padding: 12px 14px;
+      border-radius: 11px;
+      font-size: 0.85rem;
+      margin-bottom: 14px;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      background: var(--primary-light);
+      color: var(--info-text);
+    }
+    .callout.danger {
+      background: var(--danger-light);
+      border-left-color: var(--danger);
+      color: var(--danger-text);
+    }
+    .callout.success {
+      background: var(--success-light);
+      border-left-color: var(--success);
+      color: var(--success-text);
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: var(--surface-alt);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+    .tag.blue { background: var(--primary-light); color: var(--primary-dark); }
+    .tag.teal { background: var(--accent-light); color: var(--accent-text); }
+    .tag.amber { background: var(--warn-light); color: var(--warn-text); }
+    .tag.red { background: var(--danger-light); color: var(--danger-text); }
+
+    /* Filters & Checklist */
+    .toolbar { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+    .toolbar-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .search-input {
+      flex: 1 1 240px;
+      padding: 9px 13px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.88rem;
+      background: var(--input-bg);
+      color: var(--text);
+    }
+    .filter-pills { display: flex; flex-wrap: wrap; gap: 6px; width: 100%; }
+    .pill-btn {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+      padding: 6px 11px;
+      border-radius: 999px;
+      font-size: 0.79rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.12s ease;
+    }
+    .pill-btn:hover { border-color: var(--primary); color: var(--text); }
+    .pill-btn.active {
+      background: var(--primary);
+      color: var(--primary-contrast);
+      border-color: var(--primary);
+    }
+
+    .task-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      padding: 12px;
+      border: 1px solid var(--border-soft);
+      border-radius: 11px;
+      margin-bottom: 9px;
+      background: var(--surface);
+    }
+    .task-item.done { background: var(--surface-alt); }
+    .task-item.done .task-title { text-decoration: line-through; opacity: 0.6; }
+    .task-checkbox {
+      width: 22px;
+      height: 22px;
+      margin-top: 2px;
+      accent-color: var(--primary);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .task-body { flex: 1; min-width: 0; }
+    .task-top { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 4px; }
+    .task-title { font-weight: 700; font-size: 0.92rem; color: var(--text); }
+    .task-desc { font-size: 0.84rem; color: var(--text-muted); }
+    .task-note {
+      margin-top: 7px;
+      width: 100%;
+      border: 1px dashed var(--border);
+      background: var(--input-bg);
+      border-radius: 7px;
+      padding: 6px 9px;
+      font-size: 0.8rem;
+      color: var(--text);
+    }
+    .task-note:focus { outline: 2px solid var(--primary); background: var(--surface); }
+
+    /* Form Controls */
+    label.field-label {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    input[type="number"], input[type="text"], input[type="password"], input[type="date"], select, textarea {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      font-size: 0.88rem;
+      font-family: inherit;
+      background: var(--input-bg);
+      color: var(--text);
+    }
+    input[type="range"] { width: 100%; accent-color: var(--primary); cursor: pointer; }
+    .stat-box {
+      background: var(--surface-alt);
+      border-radius: 11px;
+      padding: 13px;
+      border: 1px solid var(--border-soft);
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .stat-val { font-size: 1.28rem; font-weight: 800; color: var(--text); margin-top: 3px; }
+    .stat-sub { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+
+    /* Tables */
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+    th, td {
+      padding: 9px 10px;
+      border-bottom: 1px solid var(--border-soft);
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: var(--surface-alt); font-weight: 700; color: var(--text); }
+    .cash-input { width: 96px !important; padding: 5px 7px !important; font-size: 0.82rem !important; text-align: right; }
+
+    /* Dev Stage Tabs */
+    .stage-grid { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .stage-btn {
+      padding: 7px 11px;
+      border-radius: 9px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+    .stage-btn.active {
+      background: var(--primary);
+      color: var(--primary-contrast);
+      border-color: var(--primary);
+    }
+
+    /* Floating AI Chat Button & Drawer */
+    .ai-fab {
+      position: fixed;
+      bottom: 20px;
+      right: 18px;
+      z-index: 180;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--primary-contrast);
+      border: 2px solid rgba(255,255,255,0.25);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+      font-size: 1.45rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+    .ai-fab:hover { transform: scale(1.06); }
+
+    .ai-drawer {
+      position: fixed;
+      bottom: 84px;
+      right: 16px;
+      z-index: 190;
+      width: min(410px, calc(100vw - 32px));
+      max-height: min(560px, 76vh);
+      background: var(--surface);
+      color: var(--text);
+      border: 1.5px solid var(--primary);
+      border-radius: 16px;
+      box-shadow: 0 18px 48px rgba(0,0,0,0.45);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .ai-drawer.open { display: flex; }
+    .ai-drawer-head {
+      padding: 12px 14px;
+      background: var(--surface-alt);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+    .ai-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      font-size: 0.84rem;
+    }
+    .ai-msg {
+      padding: 9px 12px;
+      border-radius: 12px;
+      max-width: 90%;
+      line-height: 1.45;
+      white-space: pre-wrap;
+    }
+    .ai-msg.bot {
+      background: var(--surface-alt);
+      border: 1px solid var(--border-soft);
+      align-self: flex-start;
+    }
+    .ai-msg.user {
+      background: var(--primary);
+      color: var(--primary-contrast);
+      align-self: flex-end;
+    }
+    .ai-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      padding: 6px 12px;
+      border-top: 1px solid var(--border-soft);
+      background: var(--surface);
+    }
+    .ai-chip {
+      font-size: 0.72rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface-alt);
+      color: var(--text);
+      cursor: pointer;
+    }
+    .ai-input-row {
+      display: flex;
+      gap: 6px;
+      padding: 10px;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .ai-settings-box {
+      padding: 10px 12px;
+      background: var(--surface-alt);
+      border-bottom: 1px solid var(--border);
+      font-size: 0.8rem;
+      display: none;
+    }
+    .ai-settings-box.open { display: block; }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.78);
+      z-index: 300;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal-card {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      max-width: 560px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 22px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.55);
+    }
+    .modal-step {
+      display: flex;
+      gap: 11px;
+      align-items: flex-start;
+      padding: 10px;
+      border: 1px solid var(--border-soft);
+      border-radius: 10px;
+      margin-bottom: 9px;
+      background: var(--surface-alt);
+      font-size: 0.85rem;
+    }
+    .step-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--primary-contrast);
+      font-weight: 800;
+      font-size: 0.78rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(90px);
+      background: #1e293b;
+      color: #f8fafc;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+      transition: transform 0.25s ease;
+      z-index: 250;
+      max-width: 92vw;
+      text-align: center;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    @media print {
+      .nav-bar, .header-actions, .toolbar, .toast, .modal-backdrop, .ai-fab, .ai-drawer, .global-search-bar { display: none !important; }
+      body { padding-bottom: 0; background: #fff !important; color: #000 !important; }
+      .tab-panel { display: block !important; page-break-after: always; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ==================== INITIAL PAGE LOAD GUIDE MODAL ==================== -->
+<div class="modal-backdrop" id="guideModal" role="dialog" aria-modal="true" aria-labelledby="guideTitle">
+  <div class="modal-card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+      <h2 id="guideTitle" style="font-size:1.18rem;font-weight:800;">👋 Welcome to Your Czechia Parent Guide</h2>
+      <button class="btn btn-light" onclick="closeGuideModal()" style="padding:4px 10px;">✕</button>
+    </div>
+    <p style="font-size:0.86rem;color:var(--text-muted);margin-bottom:14px;">
+      This interactive planner combines Czech family administration, 2027 financial/tax rules, medical schedules, and child development (ages 0–6).
+    </p>
+    <div class="modal-step">
+      <div class="step-num">1</div>
+      <div><strong>Live Multi-Device Sync (☁️ Cloud Room):</strong> Open the <strong>☁️ Live Sync</strong> tab to connect a shared Family Sync Code (or optional Firebase Realtime Database URL). Once connected, any checkmark or note updated on one phone automatically appears on all other devices!</div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">2</div>
+      <div><strong>Global Search &amp; ✨ AI Assistant:</strong> Use the top search bar to search across all tabs at once, or tap the floating <strong>✨ AI Chat</strong> button in the bottom-right corner to ask questions about the guide (or connect a Gemini API key for full AI answers).</div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">3</div>
+      <div><strong>Flexible Birth Date &amp; Device Theme:</strong> Set your expected or actual birth date in the header to recalculate all statutory deadlines. Theme automatically adapts to your device's Dark/Light setting.</div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">★</div>
+      <div><strong>Install as an App:</strong> Tap <strong>📲 Install App</strong> in the top bar (or <em>Share → Add to Home Screen</em> on iPhone Safari) for full-screen offline access.</div>
+    </div>
+    <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:14px;">
+      <button class="btn btn-primary" onclick="closeGuideModal()" style="padding:9px 18px;font-size:0.86rem;">Got It — Start Planning</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== TOOLTIP POPOVER ==================== -->
+<div class="tooltip-popover" id="tooltipPopover" role="tooltip">
+  <div class="tooltip-popover-head">
+    <span id="tooltipTitle">Explanation</span>
+    <button class="tooltip-close" onclick="hideTooltip()" aria-label="Close">✕</button>
+  </div>
+  <div id="tooltipBody"></div>
+</div>
+
+<!-- ==================== FLOATING AI CHAT WIDGET ==================== -->
+<button class="ai-fab" id="aiFabBtn" onclick="toggleAiDrawer()" title="Ask AI Assistant about this guide" aria-label="Open AI Chat">✨</button>
+
+<div class="ai-drawer" id="aiDrawer" role="dialog" aria-label="AI Guide Assistant">
+  <div class="ai-drawer-head">
+    <div style="font-weight:800;font-size:0.9rem;display:flex;align-items:center;gap:6px;">
+      ✨ Guide AI Assistant
+      <span class="tag blue" id="aiModeBadge">Smart Guide + Gemini</span>
+    </div>
+    <div style="display:flex;gap:5px;">
+      <button class="btn btn-light" style="padding:3px 8px;font-size:0.75rem;" onclick="toggleAiSettings()" title="Configure Gemini API Key">⚙️</button>
+      <button class="btn btn-light" style="padding:3px 8px;font-size:0.75rem;" onclick="toggleAiDrawer()">✕</button>
+    </div>
+  </div>
+  <div class="ai-settings-box" id="aiSettingsBox">
+    <label class="field-label">Optional Google Gemini API Key (Saved Locally)</label>
+    <div style="display:flex;gap:6px;margin-bottom:4px;">
+      <input type="password" id="geminiKeyInput" placeholder="AIzaSy..." oninput="saveGeminiKey(this.value)" />
+      <button class="btn btn-primary" style="padding:5px 10px;" onclick="toggleAiSettings()">Done</button>
+    </div>
+    <p style="font-size:0.74rem;color:var(--text-muted);">
+      Without an API key, the assistant answers instantly using the built-in Czechia Parent Guide knowledge engine. Adding a free Google AI Studio Gemini key enables full conversational Gemini responses grounded in this website's data.
+    </p>
+  </div>
+  <div class="ai-messages" id="aiMessages">
+    <div class="ai-msg bot">Hi! Ask me anything about Czech maternity/paternity benefits (PPM, Otcovská, 400,000 Kč RP), the 8-day health insurer rule, dual citizenship, NZIP screenings, or child development (ages 0–6).</div>
+  </div>
+  <div class="ai-chips">
+    <button class="ai-chip" onclick="askAiPreset('How does the 400,000 Kč Rodičovský příspěvek work in 2027?')">400k RP rules</button>
+    <button class="ai-chip" onclick="askAiPreset('What must we do within 8 days after birth?')">8-day deadline</button>
+    <button class="ai-chip" onclick="askAiPreset('How does Otcovská work and can father still work?')">Otcovská rules</button>
+    <button class="ai-chip" onclick="askAiPreset('What are the WHO tummy time and screen rules?')">WHO activity</button>
+  </div>
+  <div class="ai-input-row">
+    <input type="text" id="aiPromptInput" placeholder="Ask a question..." onkeydown="if(event.key==='Enter') sendAiQuestion()" />
+    <button class="btn btn-primary" onclick="sendAiQuestion()">Send</button>
+  </div>
+</div>
+
+<!-- ==================== HEADER ==================== -->
+<header>
+  <div class="header-inner">
+    <div class="header-top">
+      <div class="brand">
+        <h1>Czechia Family &amp; Newborn Guide</h1>
+        <p id="headerSubtitle">Administration • Medical &amp; Safety • Family Benefits &amp; Tax • Development (Ages 0–6)</p>
+      </div>
+      <div class="header-actions">
+        <div class="sync-status-pill" onclick="switchTab('sync')" title="Click to configure or view Live Multi-Device Sync">
+          <span class="sync-dot" id="syncDot"></span>
+          <span id="syncStatusLabel">Local Only</span>
+        </div>
+        <select id="themeModeSelect" class="theme-select" onchange="changeThemeMode(this.value)" aria-label="Color Theme">
+          <option value="auto">🌓 Auto (Device)</option>
+          <option value="dark">🌙 Dark Mode</option>
+          <option value="bw-dark">⬛ Pitch-Black B&amp;W</option>
+          <option value="light">☀️ Light Mode</option>
+        </select>
+        <button class="btn" onclick="openGuideModal()" title="Open Quick-Start Guide">❓ Guide</button>
+        <button class="btn btn-primary" id="headerInstallBtn" onclick="triggerPwaInstall()" title="Install as an offline-ready phone or desktop app">📲 Install App</button>
+      </div>
+    </div>
+
+    <!-- Flexible Birth Date Selector -->
+    <div class="due-bar">
+      <div class="due-controls">
+        <label for="dueDateInput">📅 Expected / Actual Birth Date:</label>
+        <input type="date" id="dueDateInput" value="2027-01-15" onchange="updateDueDate(this.value)" />
+        <button class="btn" style="padding:4px 9px;font-size:0.75rem;" onclick="resetDueDate()">Reset</button>
+      </div>
+      <div class="due-summary" id="dueDynamicSummary">
+        PPM start: ~20 Nov – 4 Dec 2026 • Insurer by: 23 Jan 2027 • Kindergarten: Spring 2030
+      </div>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span id="progressText">Overall Readiness: 0 / 0 tasks completed</span>
+        <span id="progressPct">0%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== RESPONSIVE WRAPPED NAVIGATION ==================== -->
+<nav class="nav-bar" aria-label="Main Sections">
+  <div class="nav-inner">
+    <button class="tab-btn active" data-tab="checklist">✅ Master Checklist</button>
+    <button class="tab-btn" data-tab="medical">🩺 Medical &amp; Safety</button>
+    <button class="tab-btn" data-tab="finance">💰 Benefits &amp; Tax</button>
+    <button class="tab-btn" data-tab="development">🧸 Development (0–6y)</button>
+    <button class="tab-btn" data-tab="sync">☁️ Live Sync</button>
+    <button class="tab-btn" data-tab="sources">📚 Sources</button>
+  </div>
+</nav>
+
+<!-- ==================== GLOBAL SITE-WIDE SEARCH ==================== -->
+<div class="global-search-bar">
+  <div class="global-search-box">
+    <span style="font-size:1rem;">🔍</span>
+    <input type="text" id="globalSearchInput" placeholder="Search across entire guide (tasks, vaccines, 400k RP, tax credits, tummy time, sources)..." oninput="runGlobalSearch(this.value)" />
+    <button class="btn btn-light" id="clearGlobalSearchBtn" style="display:none;padding:4px 9px;font-size:0.76rem;" onclick="clearGlobalSearch()">✕ Clear</button>
+    <button class="btn btn-primary" style="padding:5px 10px;font-size:0.78rem;" onclick="askAiFromSearch()">✨ Ask AI</button>
+  </div>
+  <div class="global-results-panel" id="globalResultsPanel"></div>
+</div>
+
+<main>
+  <!-- ==================== SMART PWA INSTALL PROMPT BANNER ==================== -->
+  <div class="pwa-banner" id="pwaInstallBanner" role="region" aria-label="Install App">
+    <div>
+      <strong>📲 Install Czechia Parent Guide as an App:</strong>
+      <span id="pwaBannerDesc">Add to your home screen for one-tap full-screen access and offline availability.</span>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+      <button class="btn btn-primary" id="bannerInstallActionBtn" onclick="triggerPwaInstall()">Install Now</button>
+      <button class="btn btn-light" onclick="dismissPwaBanner()" style="padding:5px 10px;">Not now</button>
+    </div>
+  </div>
+
+  <!-- ==================== TAB 1: MASTER CHECKLIST ==================== -->
+  <section id="tab-checklist" class="tab-panel active">
+    <details class="explain-box" open>
+      <summary>ℹ️ How to Use the Master Checklist &amp; Cross-Border Notes</summary>
+      <div class="explain-body">
+        <p style="margin-bottom:6px;">
+          Filter tasks by stage below, tap <strong>ⓘ</strong> on any item for legal or practical context, and add personal notes directly inside each card.
+        </p>
+        <p>
+          <strong>Cross-Border Family Context (Czech Citizen Father + Foreign-National Mother):</strong> A child born to at least one Czech citizen parent generally acquires <strong>Czech citizenship automatically by descent</strong> regardless of place of birth. Confirm Georgian citizenship and dual-citizenship formalities separately with the Georgian Embassy, and never conflate citizenship procedures with residence permits.
+        </p>
+      </div>
+    </details>
+
+    <div class="toolbar">
+      <div class="toolbar-row">
+        <input type="text" id="taskSearch" class="search-input" placeholder="Filter checklist items..." oninput="renderTasks()" />
+        <button class="pill-btn" id="hideDoneBtn" onclick="toggleHideDone()">Hide Completed</button>
+      </div>
+      <div class="filter-pills" id="phaseFilters">
+        <button class="pill-btn active" data-phase="all">All Stages</button>
+        <button class="pill-btn" data-phase="before">1. Before Birth</button>
+        <button class="pill-btn" data-phase="discharge">2. Birth &amp; Discharge</button>
+        <button class="pill-btn" data-phase="sixweeks">3. First 6 Weeks</button>
+        <button class="pill-btn" data-phase="benefits">4. Benefits &amp; Tax</button>
+        <button class="pill-btn" data-phase="gear">5. Gear &amp; Safe Sleep</button>
+        <button class="pill-btn" data-phase="later">6. Toddler &amp; Kindergarten</button>
+      </div>
+    </div>
+
+    <div id="taskContainer"></div>
+  </section>
+
+  <!-- ==================== TAB 2: MEDICAL, VACCINES & SAFETY ==================== -->
+  <section id="tab-medical" class="tab-panel">
+    <div class="callout danger">
+      <strong>🚨 Urgent Red-Flag Rule (&lt; 3 Months Old):</strong> A baby younger than 3 months with a temperature of <strong>38.0 °C or higher</strong> requires prompt medical assessment. Call <strong>155</strong> (or <strong>112</strong>) immediately for laboured/fast breathing, pauses in breathing, blue/grey lips or skin, unresponsiveness, or seizures. Never give medicines or doses based on an online guide—use clinician-provided instructions for your child's exact age and weight.
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          📞 Family Emergency &amp; Clinic Quick-Card
+          <span class="info-tip" onclick="showTip(event, 'Quick-Card Storage', 'All phone numbers and notes entered here are saved automatically and synced across connected devices.')">i</span>
+        </div>
+        <span class="tag blue">Auto-Saved &amp; Synced</span>
+      </div>
+      <div class="grid-3">
+        <div>
+          <label class="field-label">Paediatrician (PLDD) &amp; After-Hours Line</label>
+          <input type="text" data-contact="pldd" placeholder="Doctor name, phone, nurse email..." oninput="saveContact(this)" />
+        </div>
+        <div>
+          <label class="field-label">Nearest Children's Emergency (Pohotovost)</label>
+          <input type="text" data-contact="er" placeholder="Hospital name & address..." oninput="saveContact(this)" />
+        </div>
+        <div>
+          <label class="field-label">Mother's Health Insurer &amp; Helpline</label>
+          <input type="text" data-contact="insurer" placeholder="e.g., VZP 111 + client line..." oninput="saveContact(this)" />
+        </div>
+        <div>
+          <label class="field-label">Maternity Hospital &amp; Delivery Ward</label>
+          <input type="text" data-contact="hospital" placeholder="Hospital name & ward phone..." oninput="saveContact(this)" />
+        </div>
+        <div>
+          <label class="field-label">Emergency Medical Numbers</label>
+          <input type="text" value="155 (CZ Ambulance) / 112 (EU Emergency)" readonly style="font-weight:700;" />
+        </div>
+        <div>
+          <label class="field-label">Consular / Embassy Contact (If Applicable)</label>
+          <input type="text" data-contact="embassy" placeholder="Consular phone / appointment notes..." oninput="saveContact(this)" />
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          🩺 Czech Preventive Examination Calendar (10 Checks in First 18 Months)
+          <span class="info-tip" onclick="showTip(event, 'Expanded NZIP Schedule', 'From January 2026, the Czech preventive examination programme includes 10 checks in the first 18 months, including dedicated vision/hearing screenings around 8 months and a second eye-defect screening phase by 18 months.')">i</span>
+        </div>
+        <span class="tag teal">NZIP Schedule</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Age / Window</th><th>What to Arrange or Ask About</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Newborn / Maternity Hospital</strong></td><td>Newborn metabolic screening, hearing screening, congenital cataract screening, and first hip-dysplasia check/referral pathway; confirm what was completed and how results are communicated.</td></tr>
+            <tr><td><strong>First days after discharge</strong></td><td>First paediatric examination (typically within 2 days after discharge, or earlier after early discharge/home birth): weight, feeding, jaundice, and vitamin K/D plan.</td></tr>
+            <tr><td><strong>Early infancy</strong></td><td>Routine paediatric preventive checks: growth, feeding, development, family questions, and vaccination planning (Vitamin D daily from week 2 as advised by PLDD).</td></tr>
+            <tr><td><strong>Around 8 months</strong></td><td>Age-specific vision and hearing assessment included in the expanded preventive programme.</td></tr>
+            <tr><td><strong>10–11 months</strong></td><td>Review vitamin D, complementary feeding, iron-rich foods, and developmental progress.</td></tr>
+            <tr><td><strong>12 months</strong></td><td>Milestone preventive examination: growth, vision/hearing, speech, teeth, vitamin D, vaccination plan, and oral-health/dental advice.</td></tr>
+            <tr><td><strong>By 18 months</strong></td><td>Second phase of serious eye-defect screening (due no later than 18 months, following the first phase) + autism-spectrum screening &amp; motor/language/social review (repeat at 24 months if indicated).</td></tr>
+            <tr><td><strong>From age 3</strong></td><td>General preventive checks typically move to a two-year interval; preventive dental visits continue separately.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            💉 Vaccination Discussion Guide
+            <span class="info-tip" onclick="showTip(event, 'Why Exact Dates Are Left to PLDD', 'Exact vaccine dates and dose counts depend on the specific vaccine brand, the child’s age at the first dose, prior doses, and current reimbursement rules. Ask your paediatrician to write the exact schedule in your child’s vaccination record.')">i</span>
+          </div>
+          <span class="tag amber">Confirm with PLDD</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Vaccine / Topic</th><th>What to Ask Paediatrician</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Hexavalent (Routine)</strong></td><td>Confirm current Czech 2+1 schedule and exact product intervals (first dose commonly from 9th week).</td></tr>
+              <tr><td><strong>Rotavirus (Oral)</strong></td><td><strong>Ask early:</strong> oral rotavirus vaccines have strict minimum/maximum age windows and cannot be started late.</td></tr>
+              <tr><td><strong>Pneumococcal</strong></td><td>Discuss recommended product, timing, and current public-insurance reimbursement eligibility.</td></tr>
+              <tr><td><strong>Meningococcal B &amp; ACWY</strong></td><td>Discuss age-specific recommendations, product schedules (e.g., primary series + booster), and reimbursement windows.</td></tr>
+              <tr><td><strong>MMR</strong></td><td>Confirm mandatory/recommended timing and any catch-up rules.</td></tr>
+              <tr><td><strong>Seasonal Influenza / Other</strong></td><td>Discuss from relevant age based on household, travel, and medical risk.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            🛡️ Safe Sleep, Car Seat, Weather &amp; Feeding Essentials
+            <span class="info-tip" onclick="showTip(event, 'Cold-Weather Car Seat Safety', 'Puffy winter coats or snowsuits compress in a crash and leave dangerous slack under the harness. Always buckle the harness snugly over thin layers first, then place a blanket or approved cover over the buckled straps.')">i</span>
+          </div>
+          <span class="tag blue">Safety First</span>
+        </div>
+        <ul style="padding-left:18px;font-size:0.85rem;color:var(--text);display:flex;flex-direction:column;gap:8px;">
+          <li><strong>Safe Sleep (Every Sleep):</strong> Place baby on the <strong>back</strong> on a <strong>firm, flat, separate sleep surface</strong> with a fitted sheet. Keep pillows, loose blankets, bumpers, nests, positioners, and soft toys out of the sleep space. Avoid overheating and weighted sleep products.</li>
+          <li><strong>Car Seat &amp; Cold Weather:</strong> Use a correctly fitted rear-facing infant seat. Never put bulky coats or snowsuits under the harness—secure the harness snugly over thin warm layers, then add a blanket over the fastened harness.</li>
+          <li><strong>Outdoor &amp; Indoor Climate:</strong> Dress in breathable layers; check baby's temperature at the chest or back of the neck rather than hands/feet, and remove warm layers promptly indoors to avoid overheating.</li>
+          <li><strong>Feeding &amp; Solids:</strong> Discuss feeding cues, wet nappies, and weight gain with PLDD. When introducing solids, ask about iron-rich foods and safe allergens. <strong>Strictly avoid honey before 12 months</strong> and whole nuts/hard choking hazards.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TAB 3: BENEFITS, TAX & CASH-FLOW ==================== -->
+  <section id="tab-finance" class="tab-panel">
+    <details class="explain-box" open>
+      <summary>ℹ️ Plain-Language Guide to Czech Family Benefits (PPM, Otcovská &amp; RP)</summary>
+      <div class="explain-body">
+        <ul style="padding-left:18px;display:flex;flex-direction:column;gap:5px;">
+          <li><strong>PPM (Peněžitá pomoc v mateřství — Maternity Benefit):</strong> Paid by ČSSZ for 28 weeks (196 days) for one child, or 37 weeks (259 days) for multiples, usually starting 6–8 weeks before the due date at <strong>70% of the reduced daily assessment base (RDVZ)</strong>.</li>
+          <li><strong>Otcovská (Paternity Benefit):</strong> 14 consecutive calendar days for the father, started within 6 weeks after birth (separate from the mother's PPM) at <strong>70% of RDVZ</strong>.</li>
+          <li><strong>Rodičovský příspěvek (RP — Parental Allowance):</strong> Flexible total pool of <strong>400,000 Kč</strong> for a single youngest child born/adopted from <strong>1 January 2027</strong> (Act No. 152/2026 Sb.; 350,000 Kč for births prior to 2027). Monthly drawdown speed can be adjusted every 3 months up to the higher eligible parent's monthly cap.</li>
+        </ul>
+      </div>
+    </details>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          🎛️ Household Benefit &amp; DVZ Scenario Simulator
+          <span class="info-tip" onclick="showTip(event, 'How DVZ & Reduction Thresholds Work', 'ČSSZ calculates your Daily Assessment Base (DVZ) from your gross insurable income over the 12 calendar months before leave starts (excluding legally excluded days). In 2027 (MPSV No. 185/2026 Sb.), DVZ is counted at 100% up to 1,723 Kč, 60% between 1,723 and 2,584 Kč, and 30% between 2,584 and 5,167 Kč.')">i</span>
+        </div>
+        <div class="filter-pills" style="width:auto;">
+          <button class="pill-btn active" onclick="applyFinancePreset('baseline', this)">Baseline (57.8k / 83.7k)</button>
+          <button class="pill-btn" onclick="applyFinancePreset('higher', this)">Higher (+15%)</button>
+          <button class="pill-btn" onclick="applyFinancePreset('conservative', this)">Conservative (-10%)</button>
+          <button class="pill-btn" onclick="applyFinancePreset('equal', this)">Equal Earners (65k / 65k)</button>
+        </div>
+      </div>
+
+      <div class="grid-3" style="margin-bottom:14px;">
+        <div>
+          <label class="field-label">Applicable Benefit Year</label>
+          <select id="benefitYear" onchange="recalcBenefits()">
+            <option value="2027" selected>2027 Rules (400,000 Kč RP • 1,723/2,584/5,167 Kč)</option>
+            <option value="2026">2026 Rules (350,000 Kč RP • 1,633/2,449/4,897 Kč)</option>
+          </select>
+        </div>
+        <div>
+          <label class="field-label">PPM Duration (Mother)</label>
+          <select id="momDays" onchange="recalcBenefits()">
+            <option value="196" selected>196 days (28 weeks — 1 child)</option>
+            <option value="259">259 days (37 weeks — multiples)</option>
+          </select>
+        </div>
+        <div>
+          <label class="field-label">RP Monthly Ceiling Basis</label>
+          <select id="rpBasis" onchange="recalcBenefits()">
+            <option value="higher" selected>Higher Eligible Parent DVZ</option>
+            <option value="mother">Mother's DVZ Only</option>
+            <option value="father">Father's DVZ Only</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-bottom:16px;">
+        <div class="stat-box" style="background:var(--surface);">
+          <div style="font-weight:700;margin-bottom:8px;">👩 Mother — PPM Estimate</div>
+          <label class="field-label">Avg. Gross Monthly Insurable Pay (Kč)</label>
+          <input type="number" id="momGross" value="57800" step="500" oninput="recalcBenefits()" />
+          <div style="margin-top:10px;font-size:0.83rem;display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+            <div>Unreduced DVZ: <strong id="momDvz">—</strong></div>
+            <div>Reduced DVZ: <strong id="momRdvz">—</strong></div>
+            <div>Daily PPM (70%): <strong id="momDaily">—</strong></div>
+            <div>Est. Total PPM: <strong id="momTotal">—</strong></div>
+          </div>
+        </div>
+
+        <div class="stat-box" style="background:var(--surface);">
+          <div style="font-weight:700;margin-bottom:8px;">👨 Father — Otcovská (14 Days) &amp; RP Cap</div>
+          <label class="field-label">Avg. Gross Monthly Insurable Pay (Kč)</label>
+          <input type="number" id="dadGross" value="83700" step="500" oninput="recalcBenefits()" />
+          <div style="margin-top:10px;font-size:0.83rem;display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+            <div>Unreduced DVZ: <strong id="dadDvz">—</strong></div>
+            <div>Reduced DVZ: <strong id="dadRdvz">—</strong></div>
+            <div>Otcovská (14d @ 70%): <strong id="dadOtcovska">—</strong></div>
+            <div>Est. Monthly RP Cap: <strong id="rpMaxCap">—</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-box">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px;">
+          <span style="font-weight:700;font-size:0.95rem;">📊 Parental Allowance (RP) Drawdown Speed</span>
+          <div class="filter-pills" style="width:auto;">
+            <button class="pill-btn" onclick="setRpMonths(12)">12m</button>
+            <button class="pill-btn" onclick="setRpMonths(18)">18m</button>
+            <button class="pill-btn" onclick="setRpMonths(24)">24m</button>
+            <button class="pill-btn" onclick="setRpMonths(30)">30m</button>
+            <button class="pill-btn" onclick="setRpMonths(36)">36m</button>
+          </div>
+        </div>
+        <label class="field-label">Target Drawdown Duration: <strong id="rpMonthsLabel">24 months</strong></label>
+        <input type="range" id="rpMonthsSlider" min="8" max="36" value="24" oninput="recalcBenefits()" />
+        <div class="grid-3" style="margin-top:12px;">
+          <div class="stat-box" style="background:var(--surface);">
+            <div class="stat-label">Target Monthly RP</div>
+            <div class="stat-val" id="rpMonthlyOut">16,667 Kč</div>
+            <div class="stat-sub" id="rpCapStatus">Within estimated monthly cap</div>
+          </div>
+          <div class="stat-box" style="background:var(--surface);">
+            <div class="stat-label">Total RP Pool</div>
+            <div class="stat-val" id="rpPoolOut">400,000 Kč</div>
+            <div class="stat-sub" id="rpPoolSub">Act No. 152/2026 Sb. (from 1 Jan 2027)</div>
+          </div>
+          <div class="stat-box" style="background:var(--surface);">
+            <div class="stat-label">Childcare Limit (&lt; 2y)</div>
+            <div class="stat-val">120 hrs/mo</div>
+            <div class="stat-sub">Unlimited hours once child turns 2</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">📅 36-Month Family Cash-Flow Worksheet</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          <button class="btn btn-light" onclick="prefillCashflow()">Auto-Fill from Simulator</button>
+          <button class="btn btn-light" onclick="resetCashflow()">Clear</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table id="cashflowTable">
+          <thead>
+            <tr>
+              <th>Period</th>
+              <th>Mother Net / PPM (Kč)</th>
+              <th>Father Net / Benefit (Kč)</th>
+              <th>RP Drawdown (Kč)</th>
+              <th>Fixed Costs (Kč)</th>
+              <th>Monthly Balance</th>
+            </tr>
+          </thead>
+          <tbody id="cashflowBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">🧾 Tax &amp; OSVČ vedlejší Decision Rules</div>
+        <span class="tag amber">Verify Current Tax Year Rules</span>
+      </div>
+      <ul style="padding-left:18px;font-size:0.85rem;display:flex;flex-direction:column;gap:7px;">
+        <li><strong>Work During PPM / Otcovská:</strong> Receiving PPM or Otcovská restricts performing the <em>specific insured work</em> from which the benefit is claimed (e.g., main employment contract). Separate contracts or secondary <em>OSVČ vedlejší</em> activities are assessed separately—confirm with payroll/ČSSZ.</li>
+        <li><strong>Child Tax Benefit (Daňové zvýhodnění):</strong> Decide which parent claims the child each month; both parents cannot claim the same child in the same month. Keep proof of shared household and non-claim by the other parent.</li>
+        <li><strong>Spouse Tax Credit (Sleva na manžela/manželku):</strong> Conditional on sharing a household with a dependent child under age 3 and staying below the spouse's annual own-income ceiling. Note that <strong>PPM counts</strong> toward the spouse's own-income limit, while <strong>Rodičovský příspěvek is excluded</strong>—verify exact statutory rules for the relevant tax year.</li>
+        <li><strong>OSVČ vedlejší Transitions:</strong> Report changes (such as PPM ending and RP or care of a child under age 4 beginning) promptly to ČSSZ and your health insurer so secondary status and advance exemptions stay properly registered.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ==================== TAB 4: CHILD DEVELOPMENT (0-6Y) ==================== -->
+  <section id="tab-development" class="tab-panel">
+    <details class="explain-box" open>
+      <summary>ℹ️ How to Use the Child Development &amp; Play Roadmap (Ages 0–6)</summary>
+      <div class="explain-body">
+        This is a flexible, evidence-informed guide for a typically developing child—not a diagnostic test or therapy protocol. Children develop at different rates and use different movement strategies (crawling is one option, alongside rolling, pivoting, or bottom-shuffling). Follow your child's cues, avoid milestone-forcing equipment (like wheeled baby walkers), and consult a paediatrician promptly if a child <strong>loses a previously acquired skill</strong> or shows persistent asymmetry or feeding difficulties.
+      </div>
+    </details>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">🌱 Five Developmental Domains to Nurture Together</div>
+        <span class="tag teal">Whole-Child Approach</span>
+      </div>
+      <div class="grid-3">
+        <div class="stat-box"><div class="stat-label">1. Gross Motor</div><div class="stat-sub" style="color:var(--text);margin-top:4px;">Floor play, reaching, rolling, self-chosen mobility, climbing, running, jumping, balance, and varied outdoor movement.</div></div>
+        <div class="stat-box"><div class="stat-label">2. Fine Motor</div><div class="stat-sub" style="color:var(--text);margin-top:4px;">Grasping, transferring between hands, stacking, scribbling, turning pages, posting large objects, safe utensils, and dressing practice.</div></div>
+        <div class="stat-box"><div class="stat-label">3. Language &amp; Communication</div><div class="stat-sub" style="color:var(--text);margin-top:4px;">Talk during routines, respond to sounds/gestures, sing, read in family languages, name objects, and pause for turn-taking responses.</div></div>
+        <div class="stat-box"><div class="stat-label">4. Cognitive / Problem-Solving</div><div class="stat-sub" style="color:var(--text);margin-top:4px;">Cause-and-effect toys, object permanence games, sorting, building, pretend play, puzzles, and open-ended materials.</div></div>
+        <div class="stat-box"><div class="stat-label">5. Social-Emotional</div><div class="stat-sub" style="color:var(--text);margin-top:4px;">Warm responsive care, imitation, shared attention, naming feelings, turn-taking, predictable routines, and peer play.</div></div>
+        <div class="stat-box"><div class="stat-label">WHO Screen &amp; Restraint Rules</div><div class="stat-sub" style="color:var(--text);margin-top:4px;">Max <strong>1 hour</strong> restrained at a time (car seat/stroller/carrier). <strong>Zero sedentary screen time under age 2</strong> (except caregiver video-chats).</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">🧭 Monthly &amp; Yearly Play Roadmap Explorer</div>
+        <span class="tag blue">Tap Age Band</span>
+      </div>
+      <div class="stage-grid" id="devStageBtns"></div>
+      <div id="devStageDetail"></div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">🤸 Practical Movement &amp; Handling Rules</div>
+          <span class="tag amber">No Milestone Forcing</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Topic</th><th>Evidence-Informed Approach</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Tummy Time</strong></td><td>Awake &amp; directly supervised only; build gradually toward <strong>≥30 min/day</strong> total across short sessions for non-mobile infants.</td></tr>
+              <tr><td><strong>Sitting</strong></td><td>Do not force prolonged unsupported sitting before readiness; brief supported sitting is fine once head/trunk control allows.</td></tr>
+              <tr><td><strong>Standing / Walking</strong></td><td>Do not pull a child upright to force milestones; supported standing play is fine when the child initiates and enjoys it.</td></tr>
+              <tr><td><strong>Walkers / Jumpers</strong></td><td><strong>Wheeled baby walkers are discouraged</strong> due to injury risk. Jumpers should never replace floor play.</td></tr>
+              <tr><td><strong>Shoes</strong></td><td>Barefoot or non-slip socks indoors on safe surfaces. First outdoor shoes should fit well and allow toe movement ("barefoot" branding is not a medical requirement).</td></tr>
+              <tr><td><strong>Head Shape</strong></td><td>Vary awake positions and carrying sides; discuss persistent head-turn preference or flattening with PLDD.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">📝 Observation &amp; Paediatrician Question Log</div>
+          <button class="btn btn-primary" onclick="addLogRow()">+ Add Entry</button>
+        </div>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:10px;">
+          Record new skills, interests, or questions to bring to your next preventive checkup.
+        </p>
+        <div id="obsLogContainer"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TAB 5: LIVE MULTI-DEVICE CLOUD SYNC ==================== -->
+  <section id="tab-sync" class="tab-panel">
+    <div class="callout success">
+      <strong>☁️ Automatic Live Sync Across All Phones, Browsers &amp; Users:</strong> Because GitHub Pages hosts static files, connecting a free <strong>Firebase Realtime Database URL</strong> (takes 60 seconds, 0 Kč) gives your guide real-time cloud storage. Whenever anyone checks a box, updates the birth date, edits contacts, or adds a note on any phone or PC, it syncs automatically everywhere.
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">🔗 Connect Shared Cloud Sync Room</div>
+        <span class="tag blue" id="cloudSyncBadge">Not Connected (Local Mode)</span>
+      </div>
+      <div class="grid-2">
+        <div>
+          <label class="field-label">1. Firebase Realtime Database URL (Required for Live Automatic Sync)</label>
+          <input type="text" id="firebaseUrlInput" placeholder="https://your-project-default-rtdb.europe-west1.firebasedatabase.app" />
+          <p style="font-size:0.78rem;color:var(--text-muted);margin-top:5px;">
+            Create a free project at <strong>console.firebase.google.com</strong> → Build → Realtime Database → Create Database (Start in test mode) → copy the <code>https://...firebasedatabase.app</code> URL here.
+          </p>
+        </div>
+        <div>
+          <label class="field-label">2. Shared Family Room Name / Passcode</label>
+          <input type="text" id="syncRoomInput" value="family-2027" placeholder="e.g., family-2027" />
+          <p style="font-size:0.78rem;color:var(--text-muted);margin-top:5px;">
+            Anyone opening the invite link below with the same Room Name automatically shares the exact same live checklist, notes, contacts, and financial plan.
+          </p>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;">
+        <button class="btn btn-primary" onclick="connectCloudSync()">☁️ Save &amp; Connect Live Sync</button>
+        <button class="btn btn-light" onclick="pullFromCloud(true)">🔄 Force Pull Now</button>
+        <button class="btn btn-light" onclick="pushToCloud(true)">⬆️ Force Push Now</button>
+        <button class="btn btn-light" onclick="copyCloudInviteLink()">📲 Copy Invite Link for Other Devices</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">📦 Manual Link &amp; File Backup (Works Without Cloud Setup)</div>
+      </div>
+      <p style="font-size:0.83rem;color:var(--text-muted);margin-bottom:10px;">
+        You can also copy an instant snapshot link or download/restore a JSON backup file anytime:
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;">
+        <button class="btn btn-primary" onclick="copySyncLink()">🔗 Copy Snapshot Sync Link</button>
+        <button class="btn btn-light" onclick="exportData()">⬇ Download JSON Backup</button>
+        <button class="btn btn-light" onclick="document.getElementById('importFile').click()">⬆ Restore JSON Backup</button>
+        <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TAB 6: OFFICIAL SOURCES ==================== -->
+  <section id="tab-sources" class="tab-panel">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">📚 Official Sources &amp; Verification Links</div>
+        <span class="tag blue">Primary Czech &amp; WHO Sources</span>
+      </div>
+      <p style="font-size:0.84rem;color:var(--text-muted);margin-bottom:14px;">
+        Legislation, benefit caps, tax credits, and clinical schedules can change. Re-check these primary official sources at the point of application or care:
+      </p>
+      <div class="grid-2">
+        <div class="stat-box">
+          <div style="font-weight:700;margin-bottom:8px;">💰 Benefits, Legislation &amp; Tax</div>
+          <ul style="padding-left:18px;font-size:0.83rem;display:flex;flex-direction:column;gap:6px;">
+            <li><a href="https://e-sbirka.gov.cz/sb/2026/152/2027-01-01" target="_blank" rel="noopener">Act No. 152/2026 Sb. — Parental Allowance 400,000 Kč from 1 Jan 2027</a></li>
+            <li><a href="https://e-sbirka.gov.cz/sb/2026/185" target="_blank" rel="noopener">MPSV Communication No. 185/2026 Sb. — 2027 Reduction Thresholds</a></li>
+            <li><a href="https://www.cssz.gov.cz/podrobne-informace-o-penezite-pomoci-v-materstvi" target="_blank" rel="noopener">ČSSZ — Detailed PPM Calculation &amp; Eligibility Rules</a></li>
+            <li><a href="https://www.mpsv.gov.cz/statni-socialni-podpora" target="_blank" rel="noopener">MPSV — State Social Support &amp; Parental Allowance</a></li>
+            <li><a href="https://financnisprava.gov.cz/" target="_blank" rel="noopener">Financial Administration of the Czech Republic (Tax Forms &amp; Rules)</a></li>
+          </ul>
+        </div>
+        <div class="stat-box">
+          <div style="font-weight:700;margin-bottom:8px;">🩺 Healthcare, Residence &amp; Child Development</div>
+          <ul style="padding-left:18px;font-size:0.83rem;display:flex;flex-direction:column;gap:6px;">
+            <li><a href="https://www.nzip.cz/clanek/440-vseobecne-preventivni-prohlidky-u-deti" target="_blank" rel="noopener">NZIP — General Preventive Examinations for Children (Expanded Schedule)</a></li>
+            <li><a href="https://www.nzip.cz/clanek/2519-preventivni-prohlidky-deti-ve-veku-0-az-2-roky" target="_blank" rel="noopener">NZIP — Preventive Examinations Age 0–2 Years</a></li>
+            <li><a href="https://www.nzip.cz/clanek/2518-preventivni-prohlidky-deti-strucny-prehled" target="_blank" rel="noopener">NZIP — Printable Preventive-Care Calendar</a></li>
+            <li><a href="https://www.vzp.cz/pojistenci/informace-a-zivotni-situace/jak-se-zaregistrovat-k-vzp/jak-prihlasit-ke-zdravotnimu-pojisteni-novorozence" target="_blank" rel="noopener">VZP — Registering a Newborn Within 8 Days (Foreign-Parent Rules)</a></li>
+            <li><a href="https://ipc.gov.cz/en/visa-and-residence-permit-types/third-country-nationals/residence-of-a-child-born-in-the-czech-republic/" target="_blank" rel="noopener">Ministry of the Interior — Residence of a Child Born in Czechia</a></li>
+            <li><a href="https://www.who.int/publications/i/item/9789241550536" target="_blank" rel="noopener">WHO — Guidelines on Physical Activity, Sedentary Behaviour &amp; Sleep (&lt;5y)</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  // ==================== DEVELOPER BUILD RECORD ====================
+  const APP_BUILD_INFO = { version: "5.1.0", reviewed: "2026-11-25" };
+  const STORAGE_KEY = "cz_parent_guide_v5_live";
+  const CLOUD_CFG_KEY = "cz_parent_guide_cloud_cfg";
+  const GEMINI_KEY_STORAGE = "cz_parent_guide_gemini_key";
+  const DEFAULT_DUE = "2027-01-15";
+
+  // ==================== DATA DEFINITIONS ====================
+  const TASKS = [
+    { id: "b1", phase: "before", badge: "As early as possible", title: "Register at chosen maternity hospital", desc: "Check the hospital's specific registration window (many Prague hospitals require registration around 14+0 weeks) and required forms.", tip: "Each maternity hospital sets its own online or in-person registration window and capacity limits." },
+    { id: "b2", phase: "before", badge: "2nd / 3rd Trimester", title: "Choose a paediatrician (PLDD) & confirm newborn acceptance", desc: "Ask about the first check timing (usually within 2 days of discharge) and out-of-hours contact options.", tip: "You will state your chosen paediatrician's name and address at the maternity hospital before discharge." },
+    { id: "b3", phase: "before", badge: "Before Birth", title: "Contact mother's health insurer in writing for newborn checklist", desc: "Ask how a baby of a Czech parent and foreign-national parent is registered, what residence documents are required, and whether an in-person visit is needed.", tip: "A newborn is generally registered within 8 days with the insurer covering the mother on the date of birth." },
+    { id: "b4", phase: "before", badge: "Before Birth", title: "Prepare identity, residence & civil-status documents", desc: "Both parents' passports/IDs, residence cards, marriage certificate, and any certified Czech translations or apostilles.", tip: "Having original civil-status documents and certified translations ready before delivery avoids delays at the registry office (matrika)." },
+    { id: "b5", phase: "before", badge: "Before Birth", title: "Agree given name(s) & surname; complete matrika declarations", desc: "Ask the maternity hospital/matrika which signatures and name/surname agreement forms are needed before delivery.", tip: "Both parents generally sign the declaration agreeing on the child's given name(s) and surname." },
+    { id: "b6", phase: "before", badge: "Before Birth", title: "Contact foreign parent's embassy regarding dual-citizenship registration", desc: "Confirm birth registration, citizenship by descent, passport requirements, translations, and dual-citizenship formalities.", tip: "Czech citizenship is acquired automatically if at least one parent is Czech on the birth date; foreign citizenship rules must be confirmed with the relevant embassy." },
+    { id: "b7", phase: "before", badge: "6–8 Weeks Before Birth", title: "Start mother's PPM paperwork with gynaecologist & employer", desc: "Confirm 270-day sickness insurance participation and 12-month assessment period with payroll/ČSSZ.", tip: "The gynaecologist issues the PPM application form, which the mother submits through her employer." },
+
+    { id: "d1", phase: "discharge", badge: "Before Discharge", title: "Confirm birth details & intended name/surname for birth record", desc: "Double-check spelling on the hospital birth notification sent to the competent registry office (matrika).", tip: "Correcting spelling mistakes after the birth certificate is printed requires a formal administrative procedure." },
+    { id: "d2", phase: "discharge", badge: "Before Discharge", title: "Verify newborn screenings (metabolic, hearing, cataract, hips) & Vitamin K", desc: "Ask which screenings were completed in hospital, when results arrive, and obtain the maternity discharge report.", tip: "Keep the maternity discharge report (propouštěcí zpráva) handy for your first paediatrician appointment." },
+    { id: "d3", phase: "discharge", badge: "Before Discharge", title: "Confirm paediatrician follow-up & save all records in one folder", desc: "Keep discharge report, screening results, and vaccination record together.", tip: "Take photos/PDF scans of all medical reports so both parents have them on their phones." },
+
+    { id: "w1", phase: "sixweeks", badge: "Within 2 Days", title: "First paediatrician examination after discharge", desc: "Weight, feeding, jaundice, and vitamin plan (earlier review needed if discharged <72h or after home birth).", tip: "Bring the hospital discharge report, a clean cloth diaper/pad, and any feeding questions." },
+    { id: "w2", phase: "sixweeks", badge: "Within 8 Days", title: "Register newborn with health insurer covering mother on birth date", desc: "If the birth certificate isn't issued by day 8, contact the insurer anyway, keep proof of contact, and submit documents as soon as issued.", tip: "Do not miss the 8-calendar-day notification window even if the registry office has not issued the paper birth certificate yet." },
+    { id: "w3", phase: "sixweeks", badge: "As Issued", title: "Collect Czech birth certificate (rodný list) from matrika", desc: "Then apply for a Czech passport or ID card as needed (birth certificate proves birth; passport/ID proves citizenship).", tip: "Check with the competent district matrika whether collection is by appointment or walk-in." },
+    { id: "w4", phase: "sixweeks", badge: "From 2nd Week", title: "Start daily Vitamin D drops", desc: "Use the exact product, dose, and duration recommended by your paediatrician.", tip: "Routine daily Vitamin D supplementation typically starts in the second week of life throughout the first year." },
+    { id: "w5", phase: "sixweeks", badge: "Within 6 Weeks", title: "Father takes 14 consecutive calendar days of Otcovská", desc: "Coordinate dates with employer and ČSSZ paperwork (qualifying hospitalization can extend the 6-week start window).", tip: "Otcovská must be taken as 14 uninterrupted calendar days starting within 6 weeks of the child's birth." },
+
+    { id: "f1", phase: "benefits", badge: "Before Birth", title: "Request 12-month gross insurable income statements from employers", desc: "Replace rough estimates with official payroll/ČSSZ figures before finalizing leave and drawdown choices.", tip: "Bonuses, unpaid leave, sick leave, and excluded days can change your actual Daily Assessment Base (DVZ)." },
+    { id: "f2", phase: "benefits", badge: "Before Birth", title: "Confirm father's work rules during Otcovská/PPM with ČSSZ/payroll", desc: "Clarify exact boundaries between main employment and any secondary OSVČ vedlejší activity.", tip: "Restrictions generally apply to performing the specific insured work from which the benefit is drawn." },
+    { id: "f3", phase: "benefits", badge: "Before PPM Ends", title: "Apply for Rodičovský příspěvek (RP) via Jenda / Úřad práce", desc: "Document the higher eligible parent's DVZ if maximizing the monthly drawdown ceiling.", tip: "Apply online via the MPSV Jenda portal before PPM ends to avoid a gap in monthly household cash flow." },
+    { id: "f4", phase: "benefits", badge: "At Transition", title: "Report OSVČ vedlejší status change (PPM → RP / childcare <4y)", desc: "Notify ČSSZ and your health insurer promptly when PPM ends so secondary OSVČ status stays valid.", tip: "Only one parent may generally claim the 'care of a child under 4' reason for secondary OSVČ status in the same month." },
+    { id: "f5", phase: "benefits", badge: "Quarterly / Annual", title: "Review RP drawdown (every 3 months) & optimize annual tax credits", desc: "Allocate monthly child tax credit (one parent per month) and check spouse tax credit eligibility.", tip: "PPM counts toward the spouse's own-income limit for the spouse tax credit, whereas Rodičovský příspěvek does not." },
+
+    { id: "g1", phase: "gear", badge: "Car Travel", title: "Install rear-facing infant car seat & prepare thin layered clothing", desc: "Never buckle bulky coats or snowsuits under the harness—secure the harness snugly first, then cover with a blanket.", tip: "Check height/weight limits and verify proper installation using ISOFIX or the vehicle seatbelt before the hospital trip." },
+    { id: "g2", phase: "gear", badge: "Safe Sleep", title: "Set up firm, flat, separate sleep space (back-sleeping only)", desc: "Fitted sheet + non-weighted sleep sack only; zero pillows, bumpers, nests, loose blankets, or soft toys.", tip: "Room-sharing (crib in parents' bedroom) is recommended, while bed-sharing on soft mattresses or sofas increases sleep risks." },
+    { id: "g3", phase: "gear", badge: "Outdoors & Home", title: "Prepare weather-ready stroller setup & indoor room thermometer", desc: "Bassinet with weather cover for wind/rain/cold; avoid overheating indoors after returning from outside.", tip: "Check baby's chest or back of the neck rather than cold hands/feet to judge warmth." },
+
+    { id: "l1", phase: "later", badge: "Around 8 & 18 Mo", title: "Complete expanded NZIP vision/hearing & 18-month autism screenings", desc: "Follow the 10-visit preventive calendar; ask early about time-limited oral rotavirus & meningococcal vaccines.", tip: "Oral rotavirus vaccines have strict maximum age limits for the first and final doses—discuss at your earliest infant checkups." },
+    { id: "l2", phase: "later", badge: "Spring Enrollment", title: "Apply for public kindergarten (MŠ) in the spring cycle before age 3", desc: "Verify statutory enrollment dates (typically spring in the year the child turns 3), catchment rules, and vaccination records.", tip: "Each municipality and kindergarten publishes its exact enrollment days and required forms ahead of the spring enrollment window." }
+  ];
+
+  const DEV_STAGES = [
+    { id: "0-1m", label: "0–1 mo", who: "Infants <1y: Several times a day in varied interactive floor-based play; build toward ≥30 min/day awake supervised tummy time.", movement: "Comfort, face-to-face time, supported carrying with head/neck support; very brief supervised tummy-to-tummy or floor sessions.", materials: "Caregiver's face and voice; simple high-contrast black/white images at a comfortable distance (20–30 cm)." },
+    { id: "1-2m", label: "1–2 mo", who: "Avoid restraining infant >1 hour at a time in carrier/car seat/stroller; zero screens.", movement: "Short tummy-time moments; gentle visual tracking side-to-side; bringing hands near midline.", materials: "Soft voice, gentle songs, unbreakable mirror during supervised play." },
+    { id: "2-3m", label: "2–3 mo", who: "Build awake tummy time gradually across short daily sessions; vary head-turn sides.", movement: "Reach toward a face or toy; look and turn toward sounds; brief floor sessions on a firm mat.", materials: "Lightweight easy-grip rattle, high-contrast cards, soft floor mat." },
+    { id: "3-4m", label: "3–4 mo", who: "Floor play is the core daily driver for gross motor development.", movement: "Explore hands, reach purposefully, begin rolling attempts; supported side-lying play.", materials: "Washable cloth book, easy-to-grasp textured toy, supervised mirror play." },
+    { id: "4-5m", label: "4–5 mo", who: "Never leave infant unattended on elevated surfaces as rolling emerges.", movement: "Practice rolling and reaching in different directions; bring feet and hands into view.", materials: "Soft easy-grip ball, crinkle book, safe teether without detachable parts." },
+    { id: "5-6m", label: "5–6 mo", who: "Do not force prolonged unsupported sitting before trunk readiness.", movement: "Explore rolling, pivoting on tummy, and brief supported sitting as ready; transfer objects between hands.", materials: "Large textured toys, stacking rings with large pieces, sturdy board book." },
+    { id: "6-7m", label: "6–7 mo", who: "Continue building toward ≥30 min/day tummy time and free floor mobility.", movement: "Floor mobility, reaching across midline, object transfer, supported transitions.", materials: "Stacking cups, large blocks, safe containers to fill and empty." },
+    { id: "7-8m", label: "7–8 mo", who: "Crawling is one possible route—rolling, pivoting, or commando crawling are also valid.", movement: "Self-directed movement, sitting transitions, banging two objects together.", materials: "Soft balls, sturdy board books, large safe household containers." },
+    { id: "8-9m", label: "8–9 mo", who: "Childproof floor zones; avoid wheeled baby walkers.", movement: "Explore crawling or self-chosen mobility; peekaboo and object permanence games.", materials: "Nesting cups, large blocks, simple cause-and-effect toys." },
+    { id: "9-10m", label: "9–10 mo", who: "Allow child to initiate pulling to stand rather than pulling them upright.", movement: "Pulling to stand if initiated; cruising along safe furniture; pointing and gestures.", materials: "Stable low furniture, large peg toys, board books, simple containers." },
+    { id: "10-11m", label: "10–11 mo", who: "Barefoot or non-slip socks indoors help foot grip and balance.", movement: "Squat/reach with support, furniture cruising, self-feeding practice with finger foods/utensils.", materials: "Large shape-sorter pieces, toddler-safe utensils, nesting cups." },
+    { id: "11-12m", label: "11–12 mo", who: "Keep shared reading and responsive back-and-forth babbling/talking daily.", movement: "Movement confidence, imitation, gestures, shared book time, and simple turn-taking.", materials: "Weighted/stable push toy under supervision, large blocks, books, safe pretend-play objects." },
+    { id: "12-24m", label: "12–24 mo", who: "WHO (1–2y): At least 180 minutes of varied physical activity at any intensity spread across the day; zero sedentary screens.", movement: "Walking on safe varied surfaces; push/pull toys; low climbing with close supervision; rolling/throwing balls; dancing.", materials: "Large blocks, shape sorters, chunky crayons with supervision, naming objects, simple songs, picture books, imitation & pretend routines." },
+    { id: "2-3y", label: "2–3 yrs", who: "WHO (2y): At least 180 min/day varied activity; max 1h restrained; keep screens minimal/high-quality co-viewed if introduced after age 2.", movement: "Running, climbing, stairs with support, kicking/throwing, dancing, simple obstacle paths, playground play.", materials: "Duplo-sized blocks, chunky puzzles, play dough with supervision, pretend kitchen, simple two-step instructions, turn-taking." },
+    { id: "3-4y", label: "3–4 yrs", who: "WHO (3–4y): At least 180 minutes of varied activity across the day, including at least 60 minutes of moderate-to-vigorous activity.", movement: "Jumping, hopping attempts, balance, tricycle/balance bike with helmet, swimming lessons with close touch supervision.", materials: "Drawing circles/lines, child-safe scissors with supervision, simple puzzles, storytelling, sorting, role play, cooperative games." },
+    { id: "4-5y", label: "4–5 yrs", who: "Encourage broad multi-sport play without early specialization or competitive pressure.", movement: "Climbing, catching larger balls, hopping, balancing, playground challenges, varied sports exposure.", materials: "Drawing people/shapes, construction sets, board games, pretend scenarios, sequencing stories, early number/letter play without pressure." },
+    { id: "5-6y", label: "5–6 yrs", who: "WHO (5–17y): Average of at least 60 minutes per day of moderate-to-vigorous, mostly aerobic activity across the week.", movement: "Running games, skipping attempts, cycling with helmet, swimming skills, ball games, gymnastics/martial-arts basics, movement variety.", materials: "More complex building, crafts, puzzles, rules-based games, conversation, storytelling, planning, and self-care tasks." }
+  ];
+
+  const EXTRA_SEARCH_TOPICS = [
+    { tab: "medical", section: "Medical & Safety", title: "Fever < 3 Months Red-Flag Rule (38.0 °C / 155 / 112)", desc: "A baby under 3 months with temperature >= 38.0 °C requires prompt medical assessment. Call 155 or 112 for breathing difficulty, blue lips, unresponsiveness, or seizures." },
+    { tab: "medical", section: "Medical & Safety", title: "Expanded 10-Check NZIP Preventive Schedule (0–18 Months)", desc: "Newborn metabolic/hearing/cataract/hip checks, 2-day discharge check, 8-month vision/hearing check, 12-month check, 18-month eye & autism screening." },
+    { tab: "medical", section: "Medical & Safety", title: "Vaccines: Hexavalent 2+1, Oral Rotavirus, Pneumococcal, Meningococcal B/ACWY, MMR", desc: "Oral rotavirus vaccines have strict minimum/maximum age windows. Discuss reimbursement and schedules with your paediatrician." },
+    { tab: "medical", section: "Medical & Safety", title: "Winter Car-Seat & Safe Sleep Essentials", desc: "Back sleeping on firm flat surface without pillows/bumpers/loose blankets. Never buckle bulky coats or snowsuits under car-seat harnesses." },
+    { tab: "finance", section: "Benefits & Tax", title: "2027 Rodičovský příspěvek (RP) — 400,000 Kč Pool (Act No. 152/2026 Sb.)", desc: "Statutory RP pool increases to 400,000 Kč for a single youngest child born from 1 Jan 2027. Monthly cap set by higher eligible parent's DVZ; adjustable every 3 months; 120h/mo nursery limit under age 2." },
+    { tab: "finance", section: "Benefits & Tax", title: "2027 Sickness Insurance Reduction Thresholds (1,723 / 2,584 / 5,167 Kč)", desc: "MPSV Communication No. 185/2026 Sb. daily reduction thresholds for PPM (70% RDVZ for 28 weeks) and Otcovská (14 days within 6 weeks)." },
+    { tab: "finance", section: "Benefits & Tax", title: "Tax Credits & OSVČ vedlejší Rules", desc: "Child tax benefit (one parent per month), spouse tax credit (PPM counts toward income limit, RP is excluded), and reporting OSVČ vedlejší childcare transitions." },
+    { tab: "development", section: "Development (0–6y)", title: "WHO Physical Activity, Tummy Time & Screen Guidelines", desc: "At least 30 min/day awake supervised tummy time under 1y; max 1h restrained; zero sedentary screen time under age 2; 180 min/day active play ages 1–4." }
+  ];
+
+  const CASHFLOW_PERIODS = [
+    { key: "birth", label: "Birth Month" },
+    { key: "m1_3", label: "Months 1–3 (PPM + Otcovská)" },
+    { key: "m4_6", label: "Months 4–6 (PPM Period)" },
+    { key: "m7_12", label: "Months 7–12 (Transition to RP)" },
+    { key: "m13_18", label: "Months 13–18 (RP Phase 1)" },
+    { key: "m19_24", label: "Months 19–24 (RP Phase 2)" },
+    { key: "m25_36", label: "Months 25–36 (Final Year)" }
+  ];
+
+  // ==================== STATE & CLOUD SYNC MANAGEMENT ====================
+  let state = {
+    updatedAt: 0,
+    dueDate: DEFAULT_DUE,
+    themeMode: "auto",
+    guideSeen: false,
+    checked: {},
+    notes: {},
+    contacts: { pldd: "", er: "", insurer: "", hospital: "", embassy: "" },
+    finance: { year: "2027", momGross: 57800, momDays: 196, dadGross: 83700, rpBasis: "higher", rpMonths: 24 },
+    cashflow: {},
+    obsLog: [
+      { id: "log1", week: "Week 2", note: "First PLDD check + daily Vitamin D started", question: "Ask about oral rotavirus window & meningococcal schedule" }
+    ]
+  };
+
+  let cloudCfg = { dbUrl: "", room: "family-2027" };
+  let cloudPollTimer = null;
+  let pushDebounceTimer = null;
+
+  let activePhase = "all";
+  let hideDone = false;
+  let activeDevStage = "0-1m";
+  const systemDarkQuery = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+
+  function loadLocalData() {
+    try {
+      const cfgRaw = localStorage.getItem(CLOUD_CFG_KEY);
+      if (cfgRaw) cloudCfg = Object.assign(cloudCfg, JSON.parse(cfgRaw));
+    } catch (e) {}
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("db")) {
+      cloudCfg.dbUrl = params.get("db").replace(/\/+$/, "");
+      if (params.get("room")) cloudCfg.room = params.get("room");
+      try { localStorage.setItem(CLOUD_CFG_KEY, JSON.stringify(cloudCfg)); } catch (e) {}
+      history.replaceState(null, "", window.location.pathname);
+    }
+
+    if (window.location.hash && window.location.hash.startsWith("#sync=")) {
+      try {
+        const encoded = window.location.hash.slice(6);
+        const decoded = JSON.parse(decodeURIComponent(escape(atob(encoded))));
+        state = Object.assign(state, decoded);
+        state.guideSeen = true;
+        saveLocalState(false);
+        history.replaceState(null, "", window.location.pathname + window.location.search);
+        showToast("✅ Synced progress from link!");
+        return;
+      } catch (e) {}
+    }
+
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        state = Object.assign(state, JSON.parse(raw));
+      }
+    } catch (e) {}
+  }
+
+  function saveLocalState(updateUi = true) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch (e) {}
+    if (updateUi) updateProgress();
+  }
+
+  function commitChange(updateUi = true) {
+    state.updatedAt = Date.now();
+    saveLocalState(updateUi);
+    if (cloudCfg.dbUrl) {
+      setSyncIndicator("syncing", "Syncing...");
+      clearTimeout(pushDebounceTimer);
+      pushDebounceTimer = setTimeout(() => pushToCloud(false), 500);
+    }
+  }
+
+  function setSyncIndicator(status, label) {
+    const dot = document.getElementById("syncDot");
+    const lbl = document.getElementById("syncStatusLabel");
+    const badge = document.getElementById("cloudSyncBadge");
+    if (dot) {
+      dot.className = "sync-dot" + (status === "live" ? " live" : status === "syncing" ? " syncing" : "");
+    }
+    if (lbl) lbl.textContent = label;
+    if (badge) badge.textContent = status === "live" ? `Connected: ${cloudCfg.room}` : label;
+  }
+
+  function getCloudEndpoint() {
+    const cleanUrl = (cloudCfg.dbUrl || "").trim().replace(/\/+$/, "");
+    const cleanRoom = (cloudCfg.room || "family-2027").trim().replace(/[^a-zA-Z0-9_-]/g, "_");
+    if (!cleanUrl) return null;
+    return `${cleanUrl}/parental_help/${cleanRoom}.json`;
+  }
+
+  async function pushToCloud(manual = false) {
+    const endpoint = getCloudEndpoint();
+    if (!endpoint) {
+      if (manual) showToast("⚠️ Enter a Firebase Realtime Database URL first");
+      return;
+    }
+    try {
+      setSyncIndicator("syncing", "Saving...");
+      const res = await fetch(endpoint, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(state)
+      });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      setSyncIndicator("live", "Live Synced");
+      if (manual) showToast("☁️ Pushed changes to all devices!");
+    } catch (e) {
+      setSyncIndicator("error", "Sync Error");
+      if (manual) showToast("❌ Sync failed: check Database URL & rules");
+    }
+  }
+
+  async function pullFromCloud(manual = false) {
+    const endpoint = getCloudEndpoint();
+    if (!endpoint) return;
+    try {
+      const res = await fetch(endpoint + "?t=" + Date.now());
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const remote = await res.json();
+      if (remote && typeof remote === "object") {
+        if ((remote.updatedAt || 0) > (state.updatedAt || 0)) {
+          const keepTheme = state.themeMode;
+          state = Object.assign(state, remote);
+          state.themeMode = keepTheme;
+          saveLocalState(true);
+          refreshAllViews();
+          if (manual) showToast("🔄 Updated from cloud!");
+        } else if ((state.updatedAt || 0) > (remote.updatedAt || 0)) {
+          await pushToCloud(false);
+        }
+      } else if (!remote && (state.updatedAt || 0) > 0) {
+        await pushToCloud(false);
+      }
+      setSyncIndicator("live", "Live Synced");
+    } catch (e) {
+      setSyncIndicator("error", "Sync Offline");
+      if (manual) showToast("⚠️ Could not reach cloud database");
+    }
+  }
+
+  function startCloudSyncLoop() {
+    if (cloudPollTimer) clearInterval(cloudPollTimer);
+    if (!cloudCfg.dbUrl) {
+      setSyncIndicator("local", "Local Only");
+      return;
+    }
+    pullFromCloud(false);
+    cloudPollTimer = setInterval(() => pullFromCloud(false), 6000);
+  }
+
+  function connectCloudSync() {
+    const urlVal = document.getElementById("firebaseUrlInput").value.trim().replace(/\/+$/, "");
+    const roomVal = document.getElementById("syncRoomInput").value.trim() || "family-2027";
+    if (urlVal && !urlVal.startsWith("https://")) {
+      alert("Please enter a valid https:// Firebase Realtime Database URL.");
+      return;
+    }
+    cloudCfg = { dbUrl: urlVal, room: roomVal };
+    try { localStorage.setItem(CLOUD_CFG_KEY, JSON.stringify(cloudCfg)); } catch (e) {}
+    if (urlVal) {
+      state.updatedAt = Math.max(state.updatedAt || 0, 1);
+      startCloudSyncLoop();
+      showToast("☁️ Live multi-device sync connected!");
+    } else {
+      if (cloudPollTimer) clearInterval(cloudPollTimer);
+      setSyncIndicator("local", "Local Only");
+      showToast("Switched to local-only storage");
+    }
+  }
+
+  function copyCloudInviteLink() {
+    if (!cloudCfg.dbUrl) {
+      showToast("⚠️ Enter & save a Firebase Database URL first");
+      return;
+    }
+    const base = window.location.origin + window.location.pathname;
+    const inviteUrl = `${base}?db=${encodeURIComponent(cloudCfg.dbUrl)}&room=${encodeURIComponent(cloudCfg.room)}`;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(inviteUrl).then(() => showToast("📲 Live Sync Invite Link copied!"));
+    } else {
+      prompt("Share this Live Sync Invite Link:", inviteUrl);
+    }
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById("toast");
+    t.textContent = msg;
+    t.classList.add("show");
+    setTimeout(() => t.classList.remove("show"), 2800);
+  }
+
+  // ==================== GLOBAL SITE-WIDE SEARCH ====================
+  function runGlobalSearch(rawQuery) {
+    const q = (rawQuery || "").trim().toLowerCase();
+    const panel = document.getElementById("globalResultsPanel");
+    const clearBtn = document.getElementById("clearGlobalSearchBtn");
+    clearBtn.style.display = q ? "inline-flex" : "none";
+
+    if (!q) {
+      panel.classList.remove("open");
+      panel.innerHTML = "";
+      return;
+    }
+
+    const hits = [];
+    TASKS.forEach(t => {
+      const note = state.notes[t.id] || "";
+      if ((t.title + " " + t.desc + " " + (t.tip || "") + " " + note).toLowerCase().includes(q)) {
+        hits.push({ tab: "checklist", section: "Checklist", title: t.title, desc: t.desc, taskId: t.id });
+      }
+    });
+    DEV_STAGES.forEach(s => {
+      if ((s.label + " " + s.who + " " + s.movement + " " + s.materials).toLowerCase().includes(q)) {
+        hits.push({ tab: "development", section: "Development (" + s.label + ")", title: s.label + " Play & Movement", desc: s.movement, stageId: s.id });
+      }
+    });
+    EXTRA_SEARCH_TOPICS.forEach(item => {
+      if ((item.title + " " + item.desc + " " + item.section).toLowerCase().includes(q)) {
+        hits.push(item);
+      }
+    });
+
+    if (!hits.length) {
+      panel.innerHTML = `<div style="padding:8px;font-size:0.84rem;color:var(--text-muted);">No direct keyword matches for "<strong>${q.replace(/</g, "&lt;")}</strong>". Click <strong>✨ Ask AI</strong> to ask our assistant!</div>`;
+      panel.classList.add("open");
+      return;
+    }
+
+    panel.innerHTML = hits.slice(0, 12).map(h => `
+      <div class="search-hit" onclick="jumpToHit('${h.tab}', '${h.stageId || ""}', '${h.taskId || ""}')">
+        <div class="search-hit-top">
+          <span class="tag blue">${h.section}</span>
+          <span>${h.title}</span>
+        </div>
+        <div class="search-hit-desc">${h.desc}</div>
+      </div>
+    `).join("");
+    panel.classList.add("open");
+  }
+
+  function clearGlobalSearch() {
+    document.getElementById("globalSearchInput").value = "";
+    runGlobalSearch("");
+  }
+
+  function jumpToHit(tabName, stageId, taskId) {
+    switchTab(tabName);
+    if (stageId) selectDevStage(stageId);
+    if (taskId) {
+      activePhase = "all";
+      document.querySelectorAll("#phaseFilters .pill-btn").forEach(b => b.classList.toggle("active", b.dataset.phase === "all"));
+      document.getElementById("taskSearch").value = "";
+      renderTasks();
+      setTimeout(() => {
+        const el = document.getElementById("task_" + taskId);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 60);
+    }
+    document.getElementById("globalResultsPanel").classList.remove("open");
+  }
+
+  function askAiFromSearch() {
+    const q = document.getElementById("globalSearchInput").value.trim();
+    const drawer = document.getElementById("aiDrawer");
+    if (!drawer.classList.contains("open")) toggleAiDrawer();
+    if (q) {
+      document.getElementById("aiPromptInput").value = q;
+      sendAiQuestion();
+    }
+  }
+
+  // ==================== AI CHAT ASSISTANT (BUILT-IN RAG + OPTIONAL GEMINI API) ====================
+  function toggleAiDrawer() {
+    document.getElementById("aiDrawer").classList.toggle("open");
+  }
+  function toggleAiSettings() {
+    document.getElementById("aiSettingsBox").classList.toggle("open");
+  }
+  function saveGeminiKey(val) {
+    try { localStorage.setItem(GEMINI_KEY_STORAGE, (val || "").trim()); } catch (e) {}
+    updateAiBadge();
+  }
+  function getGeminiKey() {
+    try { return localStorage.getItem(GEMINI_KEY_STORAGE) || ""; } catch (e) { return ""; }
+  }
+  function updateAiBadge() {
+    const badge = document.getElementById("aiModeBadge");
+    if (badge) badge.textContent = getGeminiKey() ? "Gemini Live" : "Built-in Guide AI";
+  }
+
+  function askAiPreset(text) {
+    document.getElementById("aiPromptInput").value = text;
+    sendAiQuestion();
+  }
+
+  function buildGuideContextSummary() {
+    const due = state.dueDate || DEFAULT_DUE;
+    const year = state.finance.year || "2027";
+    const pool = year === "2026" ? "350,000 Kč" : "400,000 Kč (Act No. 152/2026 Sb.)";
+    const taskLines = TASKS.map(t => `- [${t.badge}] ${t.title}: ${t.desc}`).join("\n");
+    const extraLines = EXTRA_SEARCH_TOPICS.map(e => `- ${e.title}: ${e.desc}`).join("\n");
+    return `Current User Birth Date: ${due}. Selected Benefit Year: ${year} (RP pool: ${pool}).\nChecklist Knowledge:\n${taskLines}\nKey Rules:\n${extraLines}`;
+  }
+
+  function answerLocallyFromGuide(question) {
+    const q = question.toLowerCase();
+    const matches = [];
+    [...TASKS, ...EXTRA_SEARCH_TOPICS].forEach(item => {
+      const hay = (item.title + " " + item.desc + " " + (item.tip || "")).toLowerCase();
+      let score = 0;
+      q.split(/\W+/).filter(w => w.length > 2).forEach(word => {
+        if (hay.includes(word)) score++;
+      });
+      if (score > 0) matches.push({ score, item });
+    });
+    matches.sort((a, b) => b.score - a.score);
+
+    if (matches.length > 0) {
+      const top = matches.slice(0, 3).map(m => `• ${m.item.title}: ${m.item.desc}`).join("\n\n");
+      return `Based on this Czechia Parent Guide:\n\n${top}\n\n(Tip: Click ⚙️ in the chat header to add a Google Gemini API key if you want open-ended conversational answers.)`;
+    }
+    return "I searched the guide's checklists, 2027 benefit rules (400,000 Kč RP, PPM, Otcovská), NZIP medical calendar, and 0–6y development roadmap, but didn't find an exact keyword match. Try asking about 'RP', 'PPM', 'Otcovská', '8 days', 'citizenship', 'rotavirus', 'tummy time', or add a Gemini API key in ⚙️.";
+  }
+
+  async function sendAiQuestion() {
+    const input = document.getElementById("aiPromptInput");
+    const q = input.value.trim();
+    if (!q) return;
+    input.value = "";
+
+    const box = document.getElementById("aiMessages");
+    box.innerHTML += `<div class="ai-msg user">${q.replace(/</g, "&lt;")}</div>`;
+    const thinkingId = "ai_think_" + Date.now();
+    box.innerHTML += `<div class="ai-msg bot" id="${thinkingId}">Thinking...</div>`;
+    box.scrollTop = box.scrollHeight;
+
+    const apiKey = getGeminiKey();
+    if (!apiKey) {
+      const reply = answerLocallyFromGuide(q);
+      document.getElementById(thinkingId).textContent = reply;
+      box.scrollTop = box.scrollHeight;
+      return;
+    }
+
+    try {
+      const systemPrompt = "You are a helpful, accurate assistant embedded in the Czechia New Parent & Family Guide web app. Answer concisely and clearly based on the provided guide context and Czech family regulations:\n\n" + buildGuideContextSummary();
+      const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: systemPrompt }] },
+          contents: [{ role: "user", parts: [{ text: q }] }]
+        })
+      });
+      if (!resp.ok) throw new Error("Gemini API HTTP " + resp.status);
+      const data = await resp.json();
+      const text = data?.candidates?.[0]?.content?.parts?.[0]?.text || answerLocallyFromGuide(q);
+      document.getElementById(thinkingId).textContent = text;
+    } catch (err) {
+      document.getElementById(thinkingId).textContent = answerLocallyFromGuide(q) + "\n\n(Note: Gemini API call failed—check API key in ⚙️.)";
+    }
+    box.scrollTop = box.scrollHeight;
+  }
+
+  // ==================== ONBOARDING MODAL & TOOLTIPS ====================
+  function openGuideModal() { document.getElementById("guideModal").classList.add("open"); }
+  function closeGuideModal() {
+    document.getElementById("guideModal").classList.remove("open");
+    state.guideSeen = true;
+    saveLocalState(false);
+  }
+
+  function showTip(ev, title, body) {
+    ev.stopPropagation();
+    const pop = document.getElementById("tooltipPopover");
+    document.getElementById("tooltipTitle").textContent = title;
+    document.getElementById("tooltipBody").textContent = body;
+    pop.classList.add("open");
+
+    const rect = ev.target.getBoundingClientRect();
+    const popW = Math.min(340, window.innerWidth * 0.9);
+    let left = rect.left + rect.width / 2 - popW / 2;
+    left = Math.max(12, Math.min(left, window.innerWidth - popW - 12));
+    let top = rect.bottom + 8;
+    if (top + 160 > window.innerHeight) top = Math.max(12, rect.top - 150);
+    pop.style.left = left + "px";
+    pop.style.top = top + "px";
+  }
+
+  function hideTooltip() { document.getElementById("tooltipPopover").classList.remove("open"); }
+  document.addEventListener("click", (e) => {
+    const pop = document.getElementById("tooltipPopover");
+    if (pop.classList.contains("open") && !pop.contains(e.target) && !e.target.classList.contains("info-tip")) hideTooltip();
+  });
+
+  // ==================== THEME MANAGEMENT ====================
+  function applyTheme() {
+    const mode = state.themeMode || "auto";
+    const prefersDark = systemDarkQuery ? systemDarkQuery.matches : false;
+    const effectiveDark = mode === "dark" || (mode === "auto" && prefersDark);
+    const effectiveBwDark = mode === "bw-dark";
+
+    document.body.classList.toggle("dark-theme", effectiveDark);
+    document.body.classList.toggle("bw-dark-theme", effectiveBwDark);
+
+    const sel = document.getElementById("themeModeSelect");
+    if (sel) sel.value = mode;
+    const metaColor = effectiveBwDark ? "#000000" : (effectiveDark ? "#05080f" : "#0f172a");
+    document.getElementById("themeMeta").setAttribute("content", metaColor);
+  }
+
+  function changeThemeMode(mode) {
+    state.themeMode = mode;
+    applyTheme();
+    saveLocalState(false);
+  }
+
+  if (systemDarkQuery && systemDarkQuery.addEventListener) {
+    systemDarkQuery.addEventListener("change", () => {
+      if ((state.themeMode || "auto") === "auto") applyTheme();
+    });
+  }
+
+  // ==================== FLEXIBLE BIRTH DATE ====================
+  function formatShortDate(d) { return d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }); }
+  function addDays(dateObj, days) {
+    const res = new Date(dateObj.getTime());
+    res.setDate(res.getDate() + days);
+    return res;
+  }
+
+  function updateDueDate(val) {
+    state.dueDate = val || DEFAULT_DUE;
+    commitChange(false);
+    refreshDueDates();
+    renderTasks();
+  }
+
+  function resetDueDate() {
+    state.dueDate = DEFAULT_DUE;
+    document.getElementById("dueDateInput").value = DEFAULT_DUE;
+    commitChange(false);
+    refreshDueDates();
+    renderTasks();
+  }
+
+  function refreshDueDates() {
+    const raw = state.dueDate || DEFAULT_DUE;
+    const parts = raw.split("-").map(Number);
+    const due = new Date(parts[0], (parts[1] || 1) - 1, parts[2] || 15);
+    if (isNaN(due.getTime())) return;
+
+    const yr = due.getFullYear() >= 2027 ? "2027" : "2026";
+    const yearSel = document.getElementById("benefitYear");
+    if (yearSel && yearSel.value !== yr) {
+      yearSel.value = yr;
+      recalcBenefits(false);
+    }
+
+    document.getElementById("dueDynamicSummary").textContent =
+      `PPM start: ${formatShortDate(addDays(due, -56))} – ${formatShortDate(addDays(due, -42))} • Insurer by: ${formatShortDate(addDays(due, 8))} • Kindergarten: Spring ${due.getFullYear() + 3}`;
+  }
+
+  function getDynamicBadge(task) {
+    const raw = state.dueDate || DEFAULT_DUE;
+    const parts = raw.split("-").map(Number);
+    const due = new Date(parts[0], (parts[1] || 1) - 1, parts[2] || 15);
+    if (isNaN(due.getTime())) return task.badge;
+    if (task.id === "b7") return `6–8 wks prior (${formatShortDate(addDays(due, -56))} – ${formatShortDate(addDays(due, -42))})`;
+    if (task.id === "w2") return `Within 8 days (by ~${formatShortDate(addDays(due, 8))})`;
+    if (task.id === "w5") return `Within 6 weeks (by ~${formatShortDate(addDays(due, 42))})`;
+    if (task.id === "l2") return `Spring ${due.getFullYear() + 3}`;
+    return task.badge;
+  }
+
+  // ==================== SNAPSHOT SYNC, BACKUP & RESTORE ====================
+  function copySyncLink() {
+    const json = JSON.stringify(state);
+    const encoded = btoa(unescape(encodeURIComponent(json)));
+    const url = window.location.origin + window.location.pathname + "#sync=" + encoded;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(() => showToast("🔗 Snapshot Sync link copied!"));
+    } else {
+      prompt("Copy this sync link:", url);
+    }
+  }
+
+  function exportData() {
+    const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "czechia-parent-guide-backup.json";
+    a.click();
+  }
+
+  function importData(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      try {
+        state = Object.assign(state, JSON.parse(ev.target.result));
+        commitChange(true);
+        refreshAllViews();
+        showToast("✅ Progress restored!");
+      } catch (err) {
+        alert("Invalid backup JSON file.");
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  // ==================== NAVIGATION ====================
+  function switchTab(tabName) {
+    document.querySelectorAll(".tab-btn").forEach(b => b.classList.toggle("active", b.dataset.tab === tabName));
+    document.querySelectorAll(".tab-panel").forEach(p => p.classList.toggle("active", p.id === "tab-" + tabName));
+    hideTooltip();
+  }
+  document.querySelectorAll(".tab-btn").forEach(btn => btn.addEventListener("click", () => switchTab(btn.dataset.tab)));
+
+  // ==================== CHECKLIST ====================
+  document.querySelectorAll("#phaseFilters .pill-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("#phaseFilters .pill-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      activePhase = btn.dataset.phase;
+      renderTasks();
+    });
+  });
+
+  function toggleHideDone() {
+    hideDone = !hideDone;
+    document.getElementById("hideDoneBtn").classList.toggle("active", hideDone);
+    renderTasks();
+  }
+
+  function escapeJsStr(str) {
+    return (str || "").replace(/\\/g, "\\\\").replace(/'/g, "\\'");
+  }
+
+  function renderTasks() {
+    const query = document.getElementById("taskSearch").value.trim().toLowerCase();
+    const container = document.getElementById("taskContainer");
+    const phaseNames = {
+      before: "1. Before Birth — Administration & Hospital",
+      discharge: "2. Birth to Discharge — Hospital Checks",
+      sixweeks: "3. First Days & Six Weeks — Deadlines",
+      benefits: "4. Benefits, Payroll & Tax Action List",
+      gear: "5. Safe Sleep, Car Seat & Weather Gear",
+      later: "6. Toddler Screenings & Kindergarten"
+    };
+
+    const filtered = TASKS.filter(t => {
+      if (activePhase !== "all" && t.phase !== activePhase) return false;
+      if (hideDone && state.checked[t.id]) return false;
+      if (query) {
+        const note = (state.notes[t.id] || "").toLowerCase();
+        const badge = getDynamicBadge(t).toLowerCase();
+        const hay = (t.title + " " + t.desc + " " + badge + " " + note).toLowerCase();
+        if (!hay.includes(query)) return false;
+      }
+      return true;
+    });
+
+    if (!filtered.length) {
+      container.innerHTML = `<div class="card" style="text-align:center;color:var(--text-muted);">No matching tasks found for this filter.</div>`;
+      return;
+    }
+
+    const grouped = {};
+    filtered.forEach(t => {
+      if (!grouped[t.phase]) grouped[t.phase] = [];
+      grouped[t.phase].push(t);
+    });
+
+    let html = "";
+    Object.keys(phaseNames).forEach(ph => {
+      if (!grouped[ph]) return;
+      html += `<div class="card"><div class="card-header"><div class="card-title">${phaseNames[ph]}</div><span class="tag blue">${grouped[ph].length} items</span></div>`;
+      grouped[ph].forEach(t => {
+        const isDone = !!state.checked[t.id];
+        const noteVal = (state.notes[t.id] || "").replace(/"/g, "&quot;");
+        const safeTipTitle = escapeJsStr(t.title);
+        const safeTipBody = escapeJsStr(t.tip);
+        const badgeLabel = getDynamicBadge(t);
+        html += `
+          <div class="task-item ${isDone ? "done" : ""}" id="task_${t.id}">
+            <input type="checkbox" class="task-checkbox" ${isDone ? "checked" : ""} onchange="toggleTask('${t.id}', this.checked)" />
+            <div class="task-body">
+              <div class="task-top">
+                <span class="tag amber">${badgeLabel}</span>
+                <span class="task-title">${t.title}</span>
+                ${t.tip ? `<span class="info-tip" onclick="showTip(event, '${safeTipTitle}', '${safeTipBody}')">i</span>` : ""}
+              </div>
+              <div class="task-desc">${t.desc}</div>
+              <input type="text" class="task-note" placeholder="Add personal note, date, or reference number..." value="${noteVal}" oninput="saveNote('${t.id}', this.value)" />
+            </div>
+          </div>`;
+      });
+      html += `</div>`;
+    });
+    container.innerHTML = html;
+  }
+
+  function toggleTask(id, checked) {
+    state.checked[id] = checked;
+    commitChange(true);
+    renderTasks();
+  }
+
+  function saveNote(id, val) {
+    state.notes[id] = val;
+    commitChange(false);
+  }
+
+  function updateProgress() {
+    const total = TASKS.length;
+    const done = TASKS.filter(t => state.checked[t.id]).length;
+    const pct = total ? Math.round((done / total) * 100) : 0;
+    document.getElementById("progressText").textContent = `Overall Readiness: ${done} / ${total} tasks completed`;
+    document.getElementById("progressPct").textContent = pct + "%";
+    document.getElementById("progressFill").style.width = pct + "%";
+  }
+
+  // ==================== CONTACTS ====================
+  function loadContacts() {
+    document.querySelectorAll("[data-contact]").forEach(inp => {
+      inp.value = state.contacts[inp.dataset.contact] || "";
+    });
+  }
+  function saveContact(el) {
+    state.contacts[el.dataset.contact] = el.value;
+    commitChange(false);
+  }
+
+  // ==================== BENEFITS SIMULATOR ====================
+  function calcReducedDvz(dvz, year) {
+    const t1 = year === "2026" ? 1633 : 1723;
+    const t2 = year === "2026" ? 2449 : 2584;
+    const t3 = year === "2026" ? 4897 : 5167;
+    return Math.min(dvz, t1)
+      + Math.max(0, Math.min(dvz, t2) - t1) * 0.60
+      + Math.max(0, Math.min(dvz, t3) - t2) * 0.30;
+  }
+
+  function formatKc(num) { return Math.round(num).toLocaleString("cs-CZ") + " Kč"; }
+
+  function applyFinancePreset(type, btn) {
+    document.querySelectorAll("#tab-finance .card-header .pill-btn").forEach(b => b.classList.remove("active"));
+    if (btn) btn.classList.add("active");
+    if (type === "baseline") { document.getElementById("momGross").value = 57800; document.getElementById("dadGross").value = 83700; }
+    else if (type === "higher") { document.getElementById("momGross").value = Math.round(57800 * 1.15); document.getElementById("dadGross").value = Math.round(83700 * 1.15); }
+    else if (type === "conservative") { document.getElementById("momGross").value = Math.round(57800 * 0.90); document.getElementById("dadGross").value = Math.round(83700 * 0.90); }
+    else if (type === "equal") { document.getElementById("momGross").value = 65000; document.getElementById("dadGross").value = 65000; }
+    recalcBenefits(true);
+  }
+
+  function setRpMonths(m) {
+    document.getElementById("rpMonthsSlider").value = m;
+    recalcBenefits(true);
+  }
+
+  function recalcBenefits(shouldCommit = true) {
+    const year = document.getElementById("benefitYear").value || "2027";
+    const pool = year === "2026" ? 350000 : 400000;
+    const momGross = Math.max(0, Number(document.getElementById("momGross").value) || 0);
+    const momDays = Number(document.getElementById("momDays").value) || 196;
+    const dadGross = Math.max(0, Number(document.getElementById("dadGross").value) || 0);
+    const rpBasis = document.getElementById("rpBasis").value;
+    const rpMonths = Number(document.getElementById("rpMonthsSlider").value) || 24;
+
+    state.finance = { year, momGross, momDays, dadGross, rpBasis, rpMonths };
+    if (shouldCommit) commitChange(false);
+
+    const momDvz = (momGross * 12) / 365;
+    const momRdvz = calcReducedDvz(momDvz, year);
+    const momDaily = Math.ceil(momRdvz * 0.70);
+    const momTotal = momDaily * momDays;
+
+    const dadDvz = (dadGross * 12) / 365;
+    const dadRdvz = calcReducedDvz(dadDvz, year);
+    const dadDaily = Math.ceil(dadRdvz * 0.70);
+    const dadOtcovska = dadDaily * 14;
+
+    let chosenDaily = Math.max(momDaily, dadDaily);
+    if (rpBasis === "mother") chosenDaily = momDaily;
+    if (rpBasis === "father") chosenDaily = dadDaily;
+
+    const rpMaxCap = chosenDaily * 30;
+    const rpMonthly = Math.round(pool / rpMonths);
+
+    document.getElementById("momDvz").textContent = momDvz.toFixed(2) + " Kč/d";
+    document.getElementById("momRdvz").textContent = momRdvz.toFixed(2) + " Kč/d";
+    document.getElementById("momDaily").textContent = formatKc(momDaily) + "/d";
+    document.getElementById("momTotal").textContent = "~" + formatKc(momTotal);
+
+    document.getElementById("dadDvz").textContent = dadDvz.toFixed(2) + " Kč/d";
+    document.getElementById("dadRdvz").textContent = dadRdvz.toFixed(2) + " Kč/d";
+    document.getElementById("dadOtcovska").textContent = "~" + formatKc(dadOtcovska);
+    document.getElementById("rpMaxCap").textContent = "~" + formatKc(rpMaxCap) + "/mo";
+
+    document.getElementById("rpMonthsLabel").textContent = rpMonths + " months";
+    document.getElementById("rpMonthlyOut").textContent = formatKc(rpMonthly);
+    document.getElementById("rpPoolOut").textContent = formatKc(pool);
+    document.getElementById("rpPoolSub").textContent = year === "2027"
+      ? "Act No. 152/2026 Sb. (births from 1 Jan 2027)"
+      : "Statutory pool for births prior to 1 Jan 2027";
+
+    const statusEl = document.getElementById("rpCapStatus");
+    if (rpMonthly > rpMaxCap) {
+      statusEl.textContent = "⚠ Exceeds est. monthly cap (" + formatKc(rpMaxCap) + ")";
+      statusEl.style.color = "var(--danger)";
+    } else {
+      statusEl.textContent = "✓ Within est. monthly cap (" + formatKc(rpMaxCap) + ")";
+      statusEl.style.color = "var(--success)";
+    }
+    return { momDaily, dadOtcovska, rpMonthly: Math.min(rpMonthly, rpMaxCap) };
+  }
+
+  // ==================== CASHFLOW TABLE ====================
+  function renderCashflow() {
+    const tbody = document.getElementById("cashflowBody");
+    tbody.innerHTML = CASHFLOW_PERIODS.map(p => {
+      const row = state.cashflow[p.key] || { mom: 0, dad: 0, rp: 0, cost: 0 };
+      const bal = (Number(row.mom) || 0) + (Number(row.dad) || 0) + (Number(row.rp) || 0) - (Number(row.cost) || 0);
+      const balColor = bal >= 0 ? "var(--success)" : "var(--danger)";
+      return `
+        <tr>
+          <td><strong>${p.label}</strong></td>
+          <td><input type="number" class="cash-input" value="${row.mom || ""}" placeholder="0" oninput="updateCashCell('${p.key}','mom',this.value)" /></td>
+          <td><input type="number" class="cash-input" value="${row.dad || ""}" placeholder="0" oninput="updateCashCell('${p.key}','dad',this.value)" /></td>
+          <td><input type="number" class="cash-input" value="${row.rp || ""}" placeholder="0" oninput="updateCashCell('${p.key}','rp',this.value)" /></td>
+          <td><input type="number" class="cash-input" value="${row.cost || ""}" placeholder="0" oninput="updateCashCell('${p.key}','cost',this.value)" /></td>
+          <td style="font-weight:700;color:${balColor};white-space:nowrap;" id="bal_${p.key}">${formatKc(bal)}</td>
+        </tr>`;
+    }).join("");
+  }
+
+  function updateCashCell(key, field, val) {
+    if (!state.cashflow[key]) state.cashflow[key] = { mom: 0, dad: 0, rp: 0, cost: 0 };
+    state.cashflow[key][field] = Number(val) || 0;
+    commitChange(false);
+    const r = state.cashflow[key];
+    const bal = (r.mom || 0) + (r.dad || 0) + (r.rp || 0) - (r.cost || 0);
+    const el = document.getElementById("bal_" + key);
+    el.textContent = formatKc(bal);
+    el.style.color = bal >= 0 ? "var(--success)" : "var(--danger)";
+  }
+
+  function prefillCashflow() {
+    const sim = recalcBenefits(false);
+    const momPpmMonth = Math.round(sim.momDaily * 30);
+    const dadNetEst = 64000;
+    const defaultCost = 55000;
+    state.cashflow = {
+      birth: { mom: momPpmMonth, dad: dadNetEst, rp: 0, cost: defaultCost },
+      m1_3:  { mom: momPpmMonth, dad: dadNetEst, rp: 0, cost: defaultCost },
+      m4_6:  { mom: momPpmMonth, dad: dadNetEst, rp: sim.rpMonthly, cost: defaultCost },
+      m7_12: { mom: 0, dad: dadNetEst, rp: sim.rpMonthly, cost: defaultCost },
+      m13_18:{ mom: 0, dad: dadNetEst, rp: sim.rpMonthly, cost: defaultCost },
+      m19_24:{ mom: 0, dad: dadNetEst, rp: sim.rpMonthly, cost: defaultCost },
+      m25_36:{ mom: 0, dad: dadNetEst, rp: state.finance.rpMonths > 24 ? sim.rpMonthly : 0, cost: defaultCost }
+    };
+    commitChange(false);
+    renderCashflow();
+  }
+
+  function resetCashflow() {
+    state.cashflow = {};
+    commitChange(false);
+    renderCashflow();
+  }
+
+  // ==================== DEVELOPMENT EXPLORER & LOG ====================
+  function renderDevExplorer() {
+    document.getElementById("devStageBtns").innerHTML = DEV_STAGES.map(s =>
+      `<button class="stage-btn ${s.id === activeDevStage ? "active" : ""}" onclick="selectDevStage('${s.id}')">${s.label}</button>`
+    ).join("");
+    const st = DEV_STAGES.find(s => s.id === activeDevStage) || DEV_STAGES[0];
+    document.getElementById("devStageDetail").innerHTML = `
+      <div class="callout" style="margin-bottom:12px;"><strong>WHO Movement &amp; Safety Benchmark:</strong> ${st.who}</div>
+      <div class="grid-2">
+        <div class="stat-box" style="background:var(--surface);">
+          <div class="stat-label">🤸 Movement &amp; Interaction Focus</div>
+          <p style="font-size:0.88rem;margin-top:6px;">${st.movement}</p>
+        </div>
+        <div class="stat-box" style="background:var(--surface);">
+          <div class="stat-label">🧩 Play Materials, Fine Motor &amp; Language</div>
+          <p style="font-size:0.88rem;margin-top:6px;">${st.materials}</p>
+        </div>
+      </div>`;
+  }
+
+  function selectDevStage(id) { activeDevStage = id; renderDevExplorer(); }
+
+  function renderObsLog() {
+    const cont = document.getElementById("obsLogContainer");
+    if (!state.obsLog.length) {
+      cont.innerHTML = `<p style="font-size:0.83rem;color:var(--text-muted);">No entries yet. Click "+ Add Entry" to record observations.</p>`;
+      return;
+    }
+    cont.innerHTML = state.obsLog.map((item, idx) => `
+      <div class="stat-box" style="margin-bottom:8px;background:var(--surface);">
+        <div style="display:flex;gap:8px;margin-bottom:6px;">
+          <input type="text" value="${(item.week || "").replace(/"/g, "&quot;")}" placeholder="Week / Age" style="max-width:160px;font-weight:700;" oninput="updateLog(${idx},'week',this.value)" />
+          <button class="btn btn-light" style="margin-left:auto;padding:4px 9px;color:var(--danger);" onclick="deleteLog(${idx})">✕</button>
+        </div>
+        <input type="text" value="${(item.note || "").replace(/"/g, "&quot;")}" placeholder="New interests / skills noticed..." style="margin-bottom:6px;" oninput="updateLog(${idx},'note',this.value)" />
+        <input type="text" value="${(item.question || "").replace(/"/g, "&quot;")}" placeholder="Questions for paediatrician..." oninput="updateLog(${idx},'question',this.value)" />
+      </div>`).join("");
+  }
+
+  function addLogRow() { state.obsLog.unshift({ id: "log_" + Date.now(), week: "", note: "", question: "" }); commitChange(false); renderObsLog(); }
+  function updateLog(idx, field, val) { state.obsLog[idx][field] = val; commitChange(false); }
+  function deleteLog(idx) { state.obsLog.splice(idx, 1); commitChange(false); renderObsLog(); }
+
+  // ==================== PWA SETUP ====================
+  let deferredInstallPrompt = null;
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  const isIos = /iphone|ipad|ipod/i.test(window.navigator.userAgent);
+
+  function setupPwa() {
+    const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="112" fill="#0f172a"/><circle cx="256" cy="256" r="136" fill="#38bdf8"/><circle cx="256" cy="256" r="56" fill="#ffffff"/></svg>`;
+    const iconDataUrl = "data:image/svg+xml;base64," + btoa(iconSvg);
+    const startUrl = window.location.origin + window.location.pathname;
+    const manifestObj = {
+      name: "Czechia New Parent & Family Guide",
+      short_name: "CZ Parent Guide",
+      start_url: startUrl,
+      display: "standalone",
+      background_color: "#090d16",
+      theme_color: "#0f172a",
+      icons: [{ src: iconDataUrl, sizes: "512x512", type: "image/svg+xml", purpose: "any maskable" }]
+    };
+    try {
+      const linkEl = document.getElementById("pwaManifest");
+      if (linkEl) linkEl.setAttribute("href", URL.createObjectURL(new Blob([JSON.stringify(manifestObj)], { type: "application/manifest+json" })));
+    } catch (e) {}
+
+    if (isStandalone) {
+      const hBtn = document.getElementById("headerInstallBtn");
+      if (hBtn) hBtn.style.display = "none";
+      return;
+    }
+    const dismissed = localStorage.getItem("cz_pwa_banner_dismissed");
+    const banner = document.getElementById("pwaInstallBanner");
+    if (banner && !dismissed) {
+      if (isIos) {
+        document.getElementById("pwaBannerDesc").textContent = "On iPhone/iPad: tap Share (↑) in Safari → 'Add to Home Screen'.";
+        document.getElementById("bannerInstallActionBtn").textContent = "How to Install";
+      }
+      banner.classList.add("visible");
+    }
+  }
+
+  window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredInstallPrompt = e;
+    const banner = document.getElementById("pwaInstallBanner");
+    if (banner && !isStandalone) banner.classList.add("visible");
+  });
+
+  function dismissPwaBanner() {
+    const banner = document.getElementById("pwaInstallBanner");
+    if (banner) banner.classList.remove("visible");
+    try { localStorage.setItem("cz_pwa_banner_dismissed", "1"); } catch (e) {}
+  }
+
+  async function triggerPwaInstall() {
+    if (deferredInstallPrompt) {
+      deferredInstallPrompt.prompt();
+      await deferredInstallPrompt.userChoice;
+      deferredInstallPrompt = null;
+      dismissPwaBanner();
+      return;
+    }
+    alert(isIos
+      ? "To install on iPhone/iPad:\n1. Tap the Share button at the bottom of Safari.\n2. Tap 'Add to Home Screen' → 'Add'."
+      : "To install as an app:\n• Android (Chrome / Samsung Internet): Open menu (⋮ / ☰) → 'Install app' or 'Add to Home screen'.\n• Desktop (Chrome / Edge): Click the install icon (⊕) in the address bar.");
+  }
+
+  // ==================== REFRESH & INIT ====================
+  function refreshAllViews() {
+    applyTheme();
+    document.getElementById("dueDateInput").value = state.dueDate || DEFAULT_DUE;
+    document.getElementById("benefitYear").value = state.finance.year || "2027";
+    document.getElementById("momGross").value = state.finance.momGross || 57800;
+    document.getElementById("momDays").value = state.finance.momDays || 196;
+    document.getElementById("dadGross").value = state.finance.dadGross || 83700;
+    document.getElementById("rpBasis").value = state.finance.rpBasis || "higher";
+    document.getElementById("rpMonthsSlider").value = state.finance.rpMonths || 24;
+
+    document.getElementById("firebaseUrlInput").value = cloudCfg.dbUrl || "";
+    document.getElementById("syncRoomInput").value = cloudCfg.room || "family-2027";
+    document.getElementById("geminiKeyInput").value = getGeminiKey();
+    updateAiBadge();
+
+    refreshDueDates();
+    loadContacts();
+    renderTasks();
+    updateProgress();
+    recalcBenefits(false);
+    renderCashflow();
+    renderDevExplorer();
+    renderObsLog();
+  }
+
+  loadLocalData();
+  refreshAllViews();
+  startCloudSyncLoop();
+  setupPwa();
+  if (!state.guideSeen) openGuideModal();
+</script>
+</body>
+</html>
